@@ -27,7 +27,7 @@ Por supuesto, puedes usar `pipx`, `pip` o cualquier otro gestor de paquetes pyth
 
 
 <p align="center">
-    <img width="90%" src="https://raw.githubusercontent.com/mgaitan/cuitonline/main/demo/usage.svg" />
+    <img width="90%" src="https://raw.githubusercontent.com/mgaitan/cuitonline/refs/heads/main/demo/usage.svg" />
 </p>
 
 Para filtrar los resultados, puedes usar `jq`. Por ejemplo podés encontrar a Dios en Rosario:
