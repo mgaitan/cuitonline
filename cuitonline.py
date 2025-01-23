@@ -56,6 +56,12 @@ class Persona(BaseModel):
 
     @computed_field
     @property
+    def dni(self) -> Optional[int]:
+        if self.tipo_persona == "física":
+            return int(self.cuit.split("-")[1])
+
+    @computed_field
+    @property
     def genero(self) -> Optional[str]:
         return self._details.get("genero")
 

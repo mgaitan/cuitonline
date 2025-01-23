@@ -1,7 +1,7 @@
 
-`cuitonline` es cliente no oficial para el sitio [cuitonline.com](https://www.cuitonline.com/) basado en scraping que obtiene . Podés usarla tanto como una CLI (interfaz de línea de comandos) o como una biblioteca en Python.
+`cuitonline` es cliente no oficial para el sitio [cuitonline.com](https://www.cuitonline.com/) basado en scraping. Podés usarla tanto como una CLI (interfaz de línea de comandos) o como una biblioteca Python.
 
-Permite realizar busquedas (por ahora físicas) por nombre, CUIT, DNI, etc. y obtener información básica estructurada como dirección, localidad, provincia, etc. La linea de comando devuelve los resultados como json a la salida estándar, por lo que es fácil de integrar con otras herramientas. 
+Permite realizar búsquedas (por ahora físicas) por nombre, CUIT, DNI, etc. y obtener información básica estructurada como dirección, localidad, provincia, etc. La linea de comando devuelve los resultados como json a la salida estándar, por lo que es fácil de integrar con otras herramientas. 
 
 
 ## Uso como CLI
@@ -54,6 +54,7 @@ Puedes agregar `cuitonline` como depedendencia de tu proyecto Python y realizar 
    - **Atributos principales:**
      - `nombre`: Nombre completo.
      - `cuit`: Número de CUIT.
+     - `dni`: Inferido desde el cuit. 
      - `tipo_persona`: Tipo de persona (física o jurídica).
      - `genero`, `direccion`, `provincia`, `localidad`, `nacionalidad`, `monotributo`, `empleador`: son detalles adicionales que se cargan (haciendo un request extra) bajo demanda. 
 
