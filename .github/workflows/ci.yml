@@ -1,0 +1,36 @@
+name: CI
+on:
+  pull_request:
+    branches:
+    - main
+  push:
+    branches:
+    - main
+
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Ruff check 
+        run: uv run ruff check --output-format=github
+
+      - name: Ruff format
+        run: uv run ruff format --check
+   
+  test:
+      needs: lint
+      runs-on: ubuntu-latest
+      strategy:
+        matrix:
+          python-version: ["3.12", "3.13"]
+      
+      steps:
+        - uses: actions/checkout@v4
+        - uses: astral-sh/setup-uv@v5
+        - run: uv sync
+        - run: uv run cuitonline 22293909 | jq -c '. | length == 1 and .[0].localidad == "La Plata"' > /dev/null
+        
