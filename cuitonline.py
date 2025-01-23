@@ -16,15 +16,19 @@ base_url = "https://www.cuitonline.com"
 
 __version__ = "0.1"
 
-class Sopita(BeautifulSoup):
 
+class Sopita(BeautifulSoup):
     def _extract(self, selector_or_attr: str, value: Optional[str] = None):
         """
         Extrae texto de un elemento HTML
         """
-        if element := self.find(attrs={selector_or_attr: value}) if value else self.select_one(selector_or_attr):
+        if (
+            element := self.find(attrs={selector_or_attr: value})
+            if value
+            else self.select_one(selector_or_attr)
+        ):
             return element.get_text(strip=True)
-    
+
 
 class Persona(BaseModel):
     nombre: str
@@ -42,12 +46,12 @@ class Persona(BaseModel):
         soup = Sopita(response.text, "html.parser")
         return {
             "genero": soup._extract("itemprop", "gender"),
-            "direccion":soup._extract("itemprop", "streetAddress"),
-            "provincia":soup._extract( "itemprop", "addressRegion"),
-            "localidad":soup._extract( "itemprop", "addressLocality"),
-            "nacionalidad":soup._extract( "itemprop", "nationality"),
-            "monotributo":soup._extract( "li:-soup-contains(Monotributista) span"),
-            "empleador":soup._extract( "li:-soup-contains(Empleador) span") == "Sí",
+            "direccion": soup._extract("itemprop", "streetAddress"),
+            "provincia": soup._extract("itemprop", "addressRegion"),
+            "localidad": soup._extract("itemprop", "addressLocality"),
+            "nacionalidad": soup._extract("itemprop", "nationality"),
+            "monotributo": soup._extract("li:-soup-contains(Monotributista) span"),
+            "empleador": soup._extract("li:-soup-contains(Empleador) span") == "Sí",
         }
 
     @computed_field
@@ -97,7 +101,7 @@ def search(q: str, pagina: int = 1) -> List[Persona]:
         persona = Persona(
             nombre=item.select_one(".denominacion h2").get_text(strip=True),
             cuit=item.select_one(".linea-cuit-persona .cuit").get_text(strip=True),
-            tipo_persona='física',
+            tipo_persona="física",
             url=f"{base_url}/{item.select_one('.denominacion a')['href']}",
         )
         resultados.append(persona)
@@ -112,12 +116,12 @@ def main():
         "--pagina",
         type=int,
         default=1,
-        help="Número de página a buscar (por defecto: 1)"
+        help="Número de página a buscar (por defecto: 1)",
     )
     args = parser.parse_args()
 
     personas = search(args.criterio, pagina=args.pagina)
-    
+
     print(
         json.dumps(
             personas,
