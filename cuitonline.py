@@ -14,7 +14,7 @@ from pydantic_core import to_jsonable_python
 
 base_url = "https://www.cuitonline.com"
 
-__version__ = "0.1"
+__version__ = "0.1.1"
 
 
 class Sopita(BeautifulSoup):
