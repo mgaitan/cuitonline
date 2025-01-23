@@ -1,0 +1,27 @@
+# file: > cuitonline_usage
+prompt() {
+  echo -ne "\033[1;35m\$ \033[0;33m"
+}
+configure() {
+  DELAY=0.02
+  DELAY_PROMPT=0.2
+  COLOR_MESSAGE='1;32'
+}
+
+run() {
+  M "Buscar por CUIT"
+  c cuitonline 20-22293909-8
+  
+  sleep 3
+  M "Buscar por DNI"
+  c cuitonline 10433615
+  sleep 3
+  M "Busca por nombre"
+  c cuitonline \"messi lionel andres\" 
+  sleep 3
+  clear
+  M "Obtiene la página 2 de los resultados"
+  c cuitonline \"juan jose gonzalez\" -p2
+
+  sleep 2
+}

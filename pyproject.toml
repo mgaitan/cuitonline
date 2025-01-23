@@ -1,0 +1,28 @@
+[project]
+name = "cuitonline"
+readme = "README.md"
+authors = [
+    { name = "Martín Gaitán", email = "gaitan@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+	"beautifulsoup4>=4.12",
+	"pydantic>=2.10",
+	"requests",
+]
+dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://github.com/mgaitan/cuitonline"
+
+[project.scripts]
+cuitonline = "cuitonline:main"
+
+[build-system]
+requires = ["flit_core>=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.2",
+]
