@@ -96,12 +96,28 @@ class Persona(BaseModel):
         return self._details.get("empleador")
 
 
+def _tipo_persona_desde_cuit(cuit: str) -> str:
+    """Infiere el tipo de persona a partir del prefijo del CUIT argentino."""
+    prefix = cuit.replace("-", "")[:2]
+    return "jurídica" if prefix in ("30", "33", "34") else "física"
+
+
+def _parsear_filtros(filtros: Optional[str]) -> list[tuple[str, str]]:
+    """Convierte 'personeria:juridica,iva:exento' en lista de (f5[], valor)."""
+    if not filtros:
+        return [("f5[]", "persona:fisica")]
+    return [("f5[]", f.strip()) for f in filtros.split(",")]
+
+
 class Busqueda:
     """Consulta paginada de personas en cuitonline.com."""
 
-    def __init__(self, criterio: str, pagina_inicial: int = 1):
+    def __init__(
+        self, criterio: str, pagina_inicial: int = 1, filtros: Optional[str] = None
+    ):
         self.criterio = criterio
         self.pagina_actual = pagina_inicial
+        self.filtros = filtros
         self.resultados = self._search(criterio, pagina=pagina_inicial)
 
     def siguiente(self):
@@ -110,24 +126,25 @@ class Busqueda:
         self.resultados = self._search(self.criterio, self.pagina_actual)
 
     def _search(self, q: str, pagina: int = 1) -> List[Persona]:
-        params = {"q": q, "f5[]": "persona:fisica", "pn": pagina}
+        params = [("q", q), ("pn", str(pagina))] + _parsear_filtros(self.filtros)
         response = requests.get(f"{base_url}/search.php", params=params)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         resultados = []
         for item in soup.select(".hit"):
+            cuit = item.select_one(".linea-cuit-persona .cuit").get_text(strip=True)
             persona = Persona(
                 nombre=item.select_one(".denominacion h2").get_text(strip=True),
-                cuit=item.select_one(".linea-cuit-persona .cuit").get_text(strip=True),
-                tipo_persona="física",
+                cuit=cuit,
+                tipo_persona=_tipo_persona_desde_cuit(cuit),
                 url=f"{base_url}/{item.select_one('.denominacion a')['href']}",
             )
             resultados.append(persona)
         return resultados
 
 
-def search(q: str, pagina: int = 1) -> List[Persona]:
-    return Busqueda(q, pagina_inicial=pagina).resultados
+def search(q: str, pagina: int = 1, filtros: Optional[str] = None) -> List[Persona]:
+    return Busqueda(q, pagina_inicial=pagina, filtros=filtros).resultados
 
 
 def main():
@@ -142,9 +159,17 @@ def main():
         default=1,
         help="Número de página a buscar (por defecto: 1)",
     )
+    parser.add_argument(
+        "-f",
+        "--filtros",
+        default=None,
+        help="Filtros de facetados separados por coma (ej: personeria:juridica,iva:exento)",
+    )
     args = parser.parse_args()
 
-    resultados = Busqueda(args.criterio, pagina_inicial=args.pagina)
+    resultados = Busqueda(
+        args.criterio, pagina_inicial=args.pagina, filtros=args.filtros
+    )
 
     print(
         json.dumps(
