@@ -97,26 +97,15 @@ class Persona(BaseModel):
 
 
 class Busqueda:
-    """
-    Permite realizar consultas iterables y paginadas de personas.
+    """Consulta paginada de personas en cuitonline.com."""
 
-    Atributos:
-        criterio (str): El criterio de búsqueda (nombre, cuit, dni, etc.).
-        pagina_actual (int): Número de la página actual de los resultados.
-        resultados (List[Persona]): Lista de personas obtenidas en la última búsqueda.
-
-    Métodos:
-        siguiente(): Actualiza los resultados con los valores de la página siguiente.
-    """
     def __init__(self, criterio: str, pagina_inicial: int = 1):
         self.criterio = criterio
         self.pagina_actual = pagina_inicial
         self.resultados = self._search(criterio, pagina=pagina_inicial)
 
     def siguiente(self):
-        """
-        Actualiza los resultados con los valores de la página siguiente.
-        """
+        """Avanza a la página siguiente y actualiza los resultados."""
         self.pagina_actual += 1
         self.resultados = self._search(self.criterio, self.pagina_actual)
 
@@ -128,37 +117,41 @@ class Busqueda:
         resultados = []
         for item in soup.select(".hit"):
             persona = Persona(
-            nombre=item.select_one(".denominacion h2").get_text(strip=True),
-            cuit=item.select_one(".linea-cuit-persona .cuit").get_text(strip=True),
-            tipo_persona="física",
-            url=f"{base_url}/{item.select_one('.denominacion a')['href']}",
+                nombre=item.select_one(".denominacion h2").get_text(strip=True),
+                cuit=item.select_one(".linea-cuit-persona .cuit").get_text(strip=True),
+                tipo_persona="física",
+                url=f"{base_url}/{item.select_one('.denominacion a')['href']}",
             )
             resultados.append(persona)
         return resultados
 
+
+def search(q: str, pagina: int = 1) -> List[Persona]:
+    return Busqueda(q, pagina_inicial=pagina).resultados
+
+
 def main():
     parser = argparse.ArgumentParser(description="Buscar personas en CUIT Online.")
-    parser.add_argument("criterio", help="Criterio de búsqueda (nombre, cuit, dni, etc.)")
+    parser.add_argument(
+        "criterio", help="Criterio de búsqueda (nombre, cuit, dni, etc.)"
+    )
     parser.add_argument(
         "-p",
         "--pagina",
         type=int,
         default=1,
-        help="Número de página inicial a buscar (por defecto: 1)",
+        help="Número de página a buscar (por defecto: 1)",
     )
     args = parser.parse_args()
 
-    # Crear instancia de Busqueda
     resultados = Busqueda(args.criterio, pagina_inicial=args.pagina)
 
-    # Imprimir los resultados
     print(
         json.dumps(
             resultados.resultados,
             default=partial(to_jsonable_python, exclude=("_details",)),
             indent=2,
-        ),
-        f"\n\nPágina Actual: {resultados.pagina_actual}",
+        )
     )
 
 
