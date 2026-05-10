@@ -25,8 +25,13 @@ cuitonline = "cuitonline:main"
 requires = ["flit_core>=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
+[tool.pytest.ini_options]
+addopts = "--record-mode=none --block-network"
+
 [dependency-groups]
 dev = [
     "cuitonline[nombres]",
+    "pytest>=8.0",
+    "pytest-recording>=0.13",
     "ruff>=0.9.2",
 ]
