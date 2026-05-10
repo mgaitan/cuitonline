@@ -1,0 +1,1409 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Accept-Language:
+      - es-AR,es;q=0.9
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0
+    method: GET
+    uri: https://www.cuitonline.com/search.php?q=gaitan+martin+emilio&pn=1&f5%5B%5D=persona%3Afisica
+  response:
+    body:
+      string: " <!DOCTYPE html> <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"es-AR\"
+        lang=\"es-AR\"> <head> <meta name=\"verify-admitad\" content=\"deeab3f4f3\"
+        /> <meta name=\"getlinko-verify-code\" content=\"getlinko-verify-ace920495c14c857bbad0f2f509df3315c79c663\"/>
+        <meta name=\"publisuites-verify-code\" content=\"aHR0cHM6Ly93d3cuY3VpdG9ubGluZS5jb20=\"
+        /> \r\n\r\n    <script>\r\n        const loadScript = ({ src, async = false,
+        type }) => {\r\n            return new Promise((resolve, reject) => {\r\n
+        \               const script = document.createElement('script');\r\n                script.src
+        = src;\r\n                if (async) script.async = true;\r\n                if
+        (type) script.type = type;\r\n\r\n                script.onload = () => resolve(src);\r\n
+        \               script.onerror = () => reject(src);\r\n\r\n                document.head.appendChild(script);\r\n
+        \           });\r\n        };\r\n    </script>\r\n\r\n\r\n    <!-- nuwara
+        start --> <meta name=\"custom:isSubscribed\" content=\"false\" /> \r\n    <script
+        defer>\r\n        (() => {\r\n            // const loadScript = ({ src, async
+        = false, type }) => {\r\n            //     return new Promise((resolve, reject)
+        => {\r\n            //         const script = document.createElement('script');\r\n
+        \           //         script.src = src;\r\n            //         if (async)
+        script.async = true;\r\n            //         if (type) script.type = type;\r\n
+        \           //\r\n            //         script.onload = () => resolve(src);\r\n
+        \           //         script.onerror = () => reject(src);\r\n            //\r\n
+        \           //         document.body.appendChild(script);\r\n            //
+        \    });\r\n            // }\r\n\r\n            const NW_STATUS = {\r\n                TODO:
+        1,\r\n                PROGRESSING: 2,\r\n                DONE: 3,\r\n            };\r\n
+        \           let nuwaraLoadStatus = NW_STATUS.TODO;\r\n            window.addEventListener('loadAds',
+        function (event) {\r\n                console.log('Custom event received:',
+        event);\r\n\r\n                if (event.detail.allowed) {\r\n                    return;\r\n
+        \               }\r\n\r\n                if (nuwaraLoadStatus > NW_STATUS.TODO)
+        {\r\n                    console.warn(\"Nuwara is already loading or got loaded\");\r\n
+        \                   return;\r\n                }\r\n\r\n                nuwaraLoadStatus
+        = NW_STATUS.PROGRESSING;\r\n\r\n                Promise.all([\r\n                    loadScript({
+        src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', async: true }),\r\n
+        \                   loadScript({ src: 'https://www.nuload.net/cuitonline/ad.js',
+        type: 'module' }),\r\n                    loadScript({ src: 'https://protagcdn.com/s/cuitonline.com/site.js'
+        }),\r\n                ]).then(\r\n                    (...params) => {\r\n
+        \                       nuwaraLoadStatus = NW_STATUS.DONE;\r\n                        if
+        (document.getElementById('watch-ad-button')) {\r\n                            document.getElementById('watch-ad-button').style.display
+        = 'inline-flex';\r\n                        }\r\n                        window.dispatchEvent(\r\n
+        \                           new CustomEvent('loadedNuwara', { detail: params
+        })\r\n                        )\r\n                    }\r\n                );\r\n
+        \           });\r\n\r\n            window.addEventListener(\"adFinished\",
+        console.log);\r\n            window.addEventListener(\"adReady\", console.log);\r\n
+        \           window.addEventListener(\"backfillButtonCreated\", console.log);\r\n
+        \           window.addEventListener(\"closeEvoker\", console.log);\r\n            window.addEventListener(\"rewardedGranted\",
+        console.log);\r\n            window.addEventListener(\"rewardedPremiumLoginEvent\",
+        console.log);\r\n\r\n            const getCookiesObj = () => Object.assign(\r\n
+        \               ...document.cookie.split(';').map(cookie => {\r\n                    const
+        [name, ...rest] = cookie.trim().split('=');\r\n                    const obj
+        = {};\r\n\r\n                    obj[decodeURIComponent(name)] = decodeURIComponent(rest.join('='));\r\n\r\n
+        \                   return obj;\r\n                })\r\n            );\r\n\r\n
+        \           document.addEventListener('DOMContentLoaded', () => {\r\n                const
+        paywall_map = {\r\n                    null: false,\r\n                    'false':
+        false,\r\n                    'true': true,\r\n                    0: false,\r\n
+        \                   1: true,\r\n                };\r\n                const
+        cookieObj = getCookiesObj();\r\n\r\n                let pigeonAllowed = paywall_map[localStorage.getItem('pigeon_allowed')];\r\n\r\n
+        \               if (localStorage.getItem('pigeon_allowed') !== null) {\r\n
+        \                   pigeonAllowed = cookieObj['paywalled-content-hits-counter']
+        % 3 === 0;\r\n                }\r\n                document.querySelector('[name=\"custom:isSubscribed\"]').setAttribute('content',
+        pigeonAllowed);\r\n\r\n                window.dispatchEvent(new CustomEvent('loadAds',
+        {\r\n                    detail: { allowed: false }\r\n                }));\r\n
+        \           });\r\n\r\n            const sleep = ms => new Promise(resolve
+        => setTimeout(resolve, ms));\r\n\r\n            const rewardButtonId = 'admanager_rewarded-ad-button';\r\n
+        \           const rewardButtonIdBackfill = 'admanager_rewarded-ad-button-backfill';\r\n
+        \           const adBg = 'admanager_rewarded-ad-modal';\r\n            let
+        rewardButtonClicked = false;\r\n            const onRewardButtonClick = async
+        () => {\r\n                if (rewardButtonClicked) {\r\n                    return;\r\n
+        \               }\r\n                rewardButtonClicked = true;\r\n                for
+        (const secs of [3000, 5000]) {\r\n                    await sleep(secs)\r\n\r\n
+        \                   const element = document.getElementById(adBg);\r\n\r\n
+        \                   if (!element || element.style.display === 'none') {\r\n
+        \                       window.dispatchEvent(new CustomEvent('adFinished'));\r\n
+        \                   }\r\n                }\r\n            };\r\n\r\n            const
+        nuRewardClick = event => [rewardButtonId, rewardButtonIdBackfill].forEach(id
+        => {\r\n                const element = document.getElementById(id);\r\n                if
+        (element) {\r\n                    element.addEventListener(\r\n                        'mouseup',
+        onRewardButtonClick\r\n                    );\r\n                }\r\n            });\r\n\r\n
+        \           window.addEventListener(\"loadedNuwara\", async () => {\r\n                window.googletag
+        = window.googletag || { cmd: [] };\r\n                window.googletag.cmd.push(function
+        () {\r\n                    window.googletag.pubads().enableSingleRequest();\r\n
+        \               });\r\n\r\n                window.protag = window.protag ||
+        { cmd: [] };\r\n                window.protag.cmd.push(function () {\r\n                    window.protag.pageInit();\r\n
+        \               });\r\n            //     await sleep(1000)\r\n            //
+        \    document.querySelectorAll('.nu-reward').forEach(\r\n            //         button
+        => {\r\n            //             button.addEventListener('click', nuRewardClick);\r\n
+        \           //             button.style.display = 'inline-flex';\r\n            //
+        \        }\r\n            //     )\r\n            });\r\n\r\n            const
+        adFinalizer = (...params) => {\r\n                console.debug('rewardAdFinished',
+        params)\r\n                const date = new Date();\r\n                date.setTime(date.getTime()
+        + (30 * 60 * 1000));\r\n                const value = btoa('[]');\r\n                //
+        debugger\r\n                document.cookie = `nu-reward-usage=${value}; expires=${date.toUTCString()};
+        path=/`;\r\n                location.reload()\r\n            };\r\n\r\n            window.addEventListener('adFinished',
+        adFinalizer);\r\n\r\n            window.addEventListener('adNotAvailable',
+        adFinalizer)\r\n        })();\r\n    </script>\r\n <!-- nuwara end --> <script
+        src=\"https://challenges.cloudflare.com/turnstile/v0/api.js\" async defer></script>
+        <script src=\"//ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js\"></script>
+        \ <script type=\"text/javascript\" src=\"https://my.cuitonline.com/c/assets/pigeon.js?v=1778456781\"></script>
+        \ <title>Gaitan Martin Emilio - persona fisica -  Cuit Online</title>  <base
+        href=\"//www.cuitonline.com/\" /> <meta name=\"copyright\" content=\"Copyright
+        2007-2026. CuitOnline.\" />    <meta name=\"viewport\" content=\"width=device-width,
+        initial-scale=1.0\"> <link rel=\"icon\" type=\"image/ico\" href=\"images/favicon-2013.ico\"/>
+        <meta name=\"theme-color\" content=\"#1F7AC1\">       <meta name=\"description\"
+        content=\"1 Resultados de Gaitan Martin Emilio incluyendo impuestos activos,
+        AFIP, ANSES, reg\xEDmenes y actividades con CuitOnline. gaitan martin emilio
+        - 20292247851; \" />  <script type=\"text/javascript\" src=\"js-250402224942-c/patchgtag.js\"></script>
+        \    \r\n    <!-- Google Tag Manager -->\r\n    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\r\n
+        \   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\r\n
+        \   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\r\n
+        \   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\r\n
+        \   })(window,document,'script','dataLayer','GTM-KQN67J6R');</script>\r\n
+        \   <!-- End Google Tag Manager -->\r\n    \r\n   <style rel=\"stylesheet\"
+        type=\"text/css\"  media=\"screen\" >* {\n    margin : 0;\n}\n\nBODY,html{\n\tmargin:
+        0px;\n\tpadding: 0px;\n\ttext-align: center;\n\tfont-family: Arial, Helvetica,
+        sans-serif;\n\tfont-size: 12px;\n    background-color: #FFFFFF;\n    height:
+        100%;\n}\n\nIMG {\n\tborder: 0px;\n}\n\n.clearfix:after {\n    content: \".\";\n
+        \   display: block;\n    height: 0;\n    clear: both;\n    visibility: hidden;\n}\n\n.clearfix
+        {display: inline-block;}  /* for IE/Mac */\n\n/** Estilos COMUNES a todas
+        las secciones **/\n\nDIV.main-container {\n    width: 100%;\n    height: auto
+        !important;\n    height: 100%;\n    min-height: 100%;\n    margin: 0 auto
+        -78px;\n}\n\nDIV.container {\n    width: 100%;\n    max-width: 1170px;\n    margin:
+        0 auto;\n}\n\nDIV.search-box-container-home, DIV.search-box-container-header
+        {\n\tposition: relative;\n\ttext-align: center;\n    margin: 0 auto;\n    width:
+        auto;\n    display: inline-block;\n    *display: inline;\n    zoom: 1;\n}\n\nINPUT.search-box-home,\nINPUT.search-box-header
+        {\n    font-size: 13px;\n    color: #757575;\n    text-align: left;\n    padding:
+        7px 60px 7px 5px;\n    width: 340px;\n    line-height: 16px;\n    background-color:
+        #fff;\n    border: solid 1px #d4d4d4;\n    margin: 0;\n}\n\nDIV.search-button-container-home,
+        \ DIV.search-button-container-header{\n    position: absolute;\n    top: 0px;\n
+        \   right: 0px;\n    font-size: 0px;\n}\n\nBUTTON.button {\n\tborder: 0px;\n\tcursor:
+        pointer;\n}\n\n.trigger {\n    display: inline-flex;\n    text-decoration:
+        none;\n}\n\n.trigger.disabled {\n    pointer-events: none;\n    opacity: 0.5;\n}\n\n.home-search-btn-wrap
+        .trigger,\n.bar-search-btn-wrap .trigger {\n    box-sizing: border-box;\n
+        \   background: #4f4f66 url(\"../images/search-icon.png\") center center no-repeat;\n\twidth:
+        60px;\n\theight: 32px;\n    margin: 0;\n    border-radius: 2px;\n    background-size:
+        30%;\n}\n\n.home-search-btn-wrap .trigger .button-text,\n.bar-search-btn-wrap
+        .trigger .button-text {\n    display: none;\n}\n\nBUTTON.search-button-home,
+        \ BUTTON.search-button-header {\n    background: #4f4f66 url(\"../images/search-icon.png\")
+        center center no-repeat;\n\twidth: 60px;\n\theight: 32px;\n    margin: 0;\n
+        \   border-radius: 2px;\n    background-size: 30%;\n}\n\nBUTTON.search-button-home
+        SPAN.button-text,  BUTTON.search-button-header SPAN.button-text {\n    display:
+        none;\n}\n\n/** Estilos del HOME **/\n\nDIV.main-container-home {\n    background:
+        #F1F1F1;\n}\n\nDIV.divisas-top-bar {\n    position: relative;\n    height:
+        45px;\n    background-color: #E6E8EB;\n}\n\nDIV.divisas-home {\n    text-align:
+        center;\n    width: 100%;\n    background-color: #E6E8EB;\n    color: #4F4F66;\n
+        \   height: 46px;\n}\n\nDIV.divisas-content {\n    position: relative;\n    margin:
+        0 auto;\n    width: auto;\n    display: inline-block;\n    *display: inline;\n
+        \   zoom: 1;\n    height: 40px;\n}\n\nDIV.divisas-home DIV.divisa-link {\n
+        \   padding: 2px 2px;\n    margin: 13px 6px 0 8px;\n    float: left;\n}\n\nDIV.divisas-home
+        DIV.divisa-link A SPAN {\n    float: left;\n}\n\nDIV.divisas-home DIV.divisa-link
+        A SPAN.indicator {\n    padding-right: 2px;\n    padding-left: 4px;\n    height:
+        12px;\n    -moz-height: 15px;\n    width: 6px;\n    margin-left: 9px;\n}\n\nSPAN.divisa-indicator-estable
+        {\n    background: url('../images/divisa_estable.png') no-repeat center center
+        ;\n}\n\nSPAN.divisa-indicator-sube {\n    background: url('../images/divisa_sube.png')
+        no-repeat center center ;\n}\n\nSPAN.divisa-indicator-baja {\n    background:
+        url('../images/divisa_baja.png') no-repeat center center ;\n}\n\nDIV.divisas-home
+        DIV.divisa-link A SPAN.flag {\n    margin: -1px 0 0 0;\n    padding: 0;\n
+        \   text-align: left;\n    width: 16px;\n    height: 16px;\n}\n\nDIV.divisas-home
+        DIV.divisa-link A SPAN.value {\n    padding-left: 5px;\n}\n\n\nSPAN.searcher-divisas-alert
+        {\n    color: #FFFFFF;\n    padding: 3px 4px 2px 20px;\n    background: #E30713
+        url('../images/alert_white_12x12.png') no-repeat 4px center ;\n}\n\n\nDIV.divisas-home
+        DIV A {\n    text-decoration: none;\n    color: #626161;\n    font-weight:
+        normal;\n    padding: 0;\n    margin: 0;\n    cursor: pointer;\n}\n\nDIV.divisas-right-button,
+        DIV.divisas-left-button {\n    display: none;\n}\n\nDIV.variaciones-uva {\n
+        \ background-color: #F0F0F0;\n  margin-top:10px;\n  padding-top:20px;\n  width:
+        100%;\n  height: 143px;\n}\n\nDIV.variaciones-uva DIV.title-uva {\n  font-size:
+        18px;\n  font-family: \"Arial\";\n  color: rgb(46, 49, 146);\n  font-weight:
+        bold;\n  line-height: 1.2;\n  text-align: center;\n}\n\nDIV.variaciones-uva
+        DIV.variacion-uva {\n    float:left;\n    width:120px;\n    height:100px;\n
+        \   font-size: 12px;\n    font-family: \"Arial\";\n    color: rgb(102, 102,
+        102);\n    line-height: 1.2;\n    text-align: center; \n}\n\nDIV.variacion-uva
+        DIV.circulo-uva {\n    border-radius: 50%;\n    background-color: rgb(46,
+        49, 146);\n    width: 60px;\n    height: 60px;\n    font-size: 14px;\n    margin:
+        0 auto;\n    margin-bottom: 8px;\n    font-family: \"Arial\";\n    color:
+        rgb(255, 255, 255);\n    font-weight: bold;\n    line-height: 4.25;\n    text-align:
+        center;\n}\n\n\nDIV.home-logo {\n\tposition: relative;\n    margin-bottom:
+        53px;\n    padding-top:140px;\n}\n\n.search-top-bar-container {\n    display:
+        flex;\n    justify-content: space-between;\n}\n\n.search-top-bar-container>*,
+        .search-top-bar-container>*>* {\n    display: flex!important;\n    align-items:
+        center;\n    justify-content: center;\n}\n\nDIV.search-top-bar-logo {\n    position:
+        static!important;\n}\n\n.search-top-bar-logo img {\n    height: fit-content;\n}\n\n.search-top-bar-container>:nth-child(2)
+        {\n    flex-grow: 1;\n}\n\nIMG.img-logo{\n    display: inline;\n}\n\nIMG.img-logo-mobile{\n
+        \   display: none;\n}\n\nDIV.home-ads {\n\tposition: relative;\n    width:
+        100%;\n\tmargin-top: 124px;\n    margin-bottom: 130px;\n    padding-top: 0px;\n\tpadding-bottom:
+        0px;\n}\n\n/*A.cotizaciones-button {\n    display: block;\n    text-decoration:
+        none;\n    color: #a0a0a0;\n    font-family: Tahoma, sans-serif;\n    font-size:
+        10px;\n    padding: 6px 20px 6px 10px !important;\n    line-height: 27px !ie;\n
+        \   height: 12px;\n    background: #f1f1f1 url('../images/arrow_btn.gif')
+        no-repeat 90px center;\n    border: solid 1px #e5e5e5;\n    -moz-border-radius:
+        2px;\n    -webkit-border-radius: 2px;\n    border-radius: 2px;\n    position:
+        absolute;\n    right: -220px;\n    top: 10px;\n}\n\nA.cotizaciones-button:hover
+        {\n    color: #fff !important;\n    background: #1f7ac1 url('../images/arrow_btn.gif')
+        no-repeat 90px center;\n}*/\n\n/** Estilos del SEARCH **/\n\nDIV.search-query
+        {\n    margin-bottom: 5px;\n    color: #49495A;\n}\n\nDIV.search-query SPAN
+        {\n    color: #9494A3;\n}\n\nDIV.search-breadcrumbs-button {\n    display:
+        none;\n}\n\nDIV.search-breadcrumbs {\n    padding-bottom: 5px;\n}\n\nDIV.breadcrumbs
+        {\n\tfont-size: 12px;\n\tcolor: #818181;\n\ttext-align: left;\n\tborder-bottom:
+        solid #E0E0E0  1px;\n}\n\nDIV.breadcrumbs A {\n\tcolor: #1C6BB0;\n}\n\nDIV.breadcrumb
+        {\n    width: auto;\n    font-size: 14px;\n    padding: 0;\n    color: #818181;\n
+        \   -webkit-border-radius: 3px;\n    -moz-border-radius: 3px;\n    border-radius:
+        3px;\n    background-color: #f1f1f1;\n    border: solid 1px #e5e5e5;\n    float:
+        left;\n    margin-right: 2px;\n    margin-bottom: 2px;\n}\n\nDIV.hl-breadcrumb
+        {\n    border: solid #E5E5E5 1px !important;\n}\n\nDIV.breadcrumb DIV.breadcrumb-inner
+        {\n    border: solid #f1f1f1 1px;\n    -webkit-border-radius: 3px;\n    -moz-border-radius:
+        3px;\n    border-radius: 3px;\n    padding: 1px 2px;\n}\n\nDIV.breadcrumb
+        A {\n    background-image: url('../images/cruz.gif');\n    background-repeat:
+        no-repeat;\n    background-position: -7px center;\n    padding: 2px;\n    text-decoration:
+        none;\n}\n\nDIV.breadcrumb A:hover {\n    background-position: 0px center;\n}\n\nDIV.search-top-bar
+        {\n    background-color:#f1f1f1;\n    width: 100%;\n    text-align: center;\n}\n\nDIV.search-top-bar-container
+        {\n    position: relative;\n    margin: 0px auto;\n    width: 100%;\n    max-width:
+        1170px;\n    text-align: center;\n    height: 75px;\n}\n\nDIV.search-top-bar-logo
+        {\n    position: absolute;\n    left: 0;\n    top: 14px;\n}\n\nDIV.filters-button
+        {\n    display: none;\n}\n\nDIV.bottom-container {\n    width: 100%;\n    max-width:1170px;\n
+        \   height:auto;\n    margin: 18px auto 32px auto;\n    position: relative;\n
+        \   background-color: #fff;\n    padding: 0;\n    clear: right !important;\n
+        \   display: inline-block;\n    text-align: left;\n    *display: inline;\n
+        \   zoom: 1;\n}\n\nDIV.categories {\n\tfloat: left;\n\twidth: 175px;\n\ttext-align:
+        left;\n\tfont-size: 12px;\n    height: 2px;\n}\n\nDIV.close-filter-button
+        {\n    display: none;\n}\n\nDIV.results-count {\n    margin-bottom: 3px;\n
+        \   font-size: 12px;\n}\n\nDIV.categories DIV.filters-title {\n    width:
+        100%;\n    height: 12px;\n    background-color: #1f7ac1;\n    padding: 8px
+        0px;\n    text-align: center;\n    color: #FFF;\n    font-size: 12px;\n}\n\nDIV.categories
+        DIV.view-categories {\n    margin-bottom: 7px;\n}\n\nDIV.categories DIV.view-categories
+        DIV.view-name{\n    font-size: 12px;\n    height: 14px;\n    color: #FFF;\n
+        \   background-color: #999;\n    padding: 3px 0px 2px 15px;\n    text-align:
+        left;\n    width: 160px;\n    margin-bottom: 2px;\n}\n\nDIV.categories DIV.view-categories
+        A {\n\tcolor: #313131;\n    text-decoration: none;\n    background-image:
+        url('../images/arrow.gif');\n    background-repeat: no-repeat;\n    background-position:
+        left center;\n    padding-left: 6px;\n    line-height: 12px;\n    margin-bottom:
+        2px;\n}\n\nDIV.categories DIV.view-categories A:hover {\n    text-decoration:
+        underline;\n    color: #1f7ac1;\n}\n\nDIV.categories DIV.view-categories SPAN.category-count
+        {\n    font-size: 10px;\n    color: #1F7AC1;\n    text-align: left;\n    padding:
+        0px 1px;\n    line-height: 10px;\n}\n\nDIV.breadcrumb-in-filter {\n    display:
+        none;\n}\n\nDIV.just-on-mobile {\n    display: none;\n}\n\n/*DIV.right-pane
+        {\n    position: relative;\n    margin-left: 205px;\n}*/\n\nDIV.left-pane
+        {\n    /*position: relative;*/\n    width: 68.5%;\n    display: block;\n}\n\nDIV.results
+        {\n\tmin-height: 572px;\n\theight: auto !important;\n\theight: 610px;\n    margin-left:
+        205px;\n}\n\nDIV.results DIV.hit {\n\tborder-bottom: solid #F1F1F1 1px;\n\ttext-align:
+        left;\n    padding: 12px 0 9px 5px;\n    font-size: 12px;\n\tbackground-color:
+        #FFF;\n\tposition: relative;\n}\n\nDIV.hit SPAN.cuit, .p_cuit {\n\tcolor:
+        #1F7AC1;\n\tfont-size: 12px;\n\tfont-weight: bold;\n}\n\nA.constancia-inscripcion
+        {\n\tfont: 12px Arial, sans-serif;\n\tcolor:#4c748b;\n\ttext-decoration: underline;\n
+        \   font-style: italic;\n}\n\nDIV.hit SPAN.denominacion{\n    font-family:
+        Arial, sans-serif;\n    font-size: 16px;\n    color: #49495A;\n}\n\nA.denominacion{\n
+        \   color: #1f7ac1;\n}\n\nA.denominacion:hover{\n\tcolor: #676767;\n}\n\nDIV.results
+        DIV.hit A.denominacion{\n\tfont-weight: bold;\n    color: #000;\n    font-size:
+        12px;\n\ttext-decoration: none;\n}\n\nDIV.denominacion{\n    margin-bottom:
+        1px;\n}\n\nDIV.results DIV.hit A.denominacion:hover{\n\tcolor: #676767;\n}\n\nDIV.hit
+        DIV.doc-facets {\n\tcolor: #313131;\n    float: left;\n    font-family: Arial,
+        sans-serif;\n}\n\nDIV.hit DIV.doc-facets SPAN.bullet{\n\tcolor: #000000;\n
+        \   font-size: 12px;\n}\n\nDIV.paginator {\n\tposition: relative;\n    height:
+        20px;\n    padding-top: 20px;\n}\n\nDIV.paginator A {\n    font-family: Arial,
+        sans-serif;\n\tfont-size: 12px;\n    text-decoration: none;\n    color: #0066CC;\n
+        \   background-color: #F2F2F2;\n    padding: 8px 12px 8px 12px;\n    margin:
+        0px 8px 0px 8px;\n}\n\nDIV.paginator A:hover {\n    color: #FFF;\n    background-color:
+        #999999;\n}\n\nDIV.paginator SPAN.special-link {\n\t/* position: absolute;\n\ttop:
+        0px; */\n}\n\nDIV.paginator SPAN.special-link A {\n    color: #0066CC;\n    background-color:
+        #F2F2F2;\n    font-size: 12px;\n    padding: 8px 12px 8px 12px;\n    margin:
+        0px 8px 0px 8px;\n}\n\nDIV.paginator SPAN.selected {\n    color: #59575C;\n
+        \   background-color: #F2F2F2;\n    font-size: 12px;\n    padding: 8px 12px
+        8px 12px;\n    margin: 0px 8px 0px 8px;\n}\n\nDIV.paginator-prev {\n    /*
+        position: absolute;\n    top: 20px; */\n    /* left: -2px; */\n}\n\nDIV.paginator-next
+        {\n    position: absolute;\n    top: 20px;\n    /* right: 60px; */\n}\n\nDIV.ads-right-bar
+        {\n\tposition: absolute;\n\tright: 0px;\n\ttop: -15px;\n\twidth: 30%;\n\ttext-align:
+        center;\n}\n\nDIV.ads-bottom-bar {\n\tmargin: 0 auto;\n}\n\n/* ESTILOS DEL
+        FOOTER */\n\nDIV.footer{\n    position:relative;\n    width: 100%;\n    max-width:
+        1170px;\n\tmargin: auto auto;\n\ttext-align: center;\n    padding: 0;\n    /*z-index:
+        -1;*/\n}\n\n/* DIV.footer-home {\n    margin-top: -60px;\n} */\n\nDIV.footer-search
+        {\n    height: 51px;\n    background: #FFFFFF;\n}\n\nDIV.footer-search  DIV.div-copyright
+        {\n    height: 51px;\n    background: #FFFFFF;\n    margin: 0;\n}\n\n.push
+        {height: 78px;}\n\n.img-co-iso{\n\tcursor: pointer;\n    border: none;\n}\n\n/*IMG.logo-footer
+        {\n    display: inline;\n}*/\n\nIMG.logo-footer {\n    display: inline;\n
+        \   width: 50%\n}\n\nIMG.logo-footer-mobile {\n    display: none;\n}\n\nDIV.div-co-iso{\n\tposition:
+        absolute; \n\tleft: 0;\n    top: 0;\n}\n\nDIV.div-copyright{\n\tposition:
+        absolute;\n\tleft: 30px;\n    top: 0;\n    padding-left: 67px;\n    padding-top:
+        9px;\n\tfont: 12px Arial,sans-serif;\n\ttext-align: left;\n    color: #4F4F66;\n}\n\nDIV.social-footer
+        {\n    position:absolute;\n    right: 30px;\n    top: 0px;\n    width: 168px;\n}\n\nDIV.social-footer
+        DIV.facebook {\n    position:absolute;\n    left:39px;\n    top:6px;\n    width:50px;\n
+        \   height:24px;\n}\n\nDIV.social-footer DIV.twitter {\n    position:absolute;\n
+        \   left:95px;\n    top:6px;\n    width:11px;\n    height:24px;\n}\n\nDIV.div-btn-comercial{\n\tposition:absolute;\n\tright:
+        70px;\n\ttop: 18px;\n\twidth: 213px;\n\theight: 37px;\n}\n\nDIV.div-btn-baja{\n
+        \   position:absolute;\n    right: 30px;\n    top: 21px;\n    width: 149px;\n
+        \   height: 29px;\n}\n\n.img-btn-comercial, .img-btn-baja{\n\tcursor: pointer;\n}\n\n/*
+        PUBLICIDADES */\n\n.pBody{\n\twidth:900px;\n\theight:auto;\n\tmargin:auto;\n}\n\nDIV.pSeccion{\n\tfont:bold
+        25px Calibri;\n    color:red;\n\tmargin-top:10px;\n\tmargin-bottom:6px;\n}\n\nDIV.pElemento{\n
+        \   font:bold 15px Calibri;\n\tfloat:left;\n}\n\nDIV.pEliminar{\n    font:bold
+        12px Calibri;\n    float:right;\n\tmargin-top: 2px;\n}\n\nDIV.pInfo{\n    margin:auto;\n\twidth:200px;\n\tmin-height:20px;\n\ttext-align:center;\n}\n\nDIV.pBanner{\n
+        \   display: inline-block;\n\tmargin-bottom:20px;\n}\n\n/* SECCION BAJAS */\n\nDIV.bodyBajas{\n\twidth:
+        90%;\n\tmargin: 20px auto 15px auto;\n}\nDIV.fisicaJuridica{\n\theight: 220px;\n}\nDIV.bajaFisica
+        {\n\twidth: 45%;\n    text-align: justify;\n    font: 12px Arial, Helvetica,
+        sans-serif;\n    color: #000000;\n\tfloat: left;\n\t/*margin-right: 80px;\n\tmargin-left:
+        25px;*/\n}\nDIV.bajaTitulo, SPAN.bajaTitulo{\n\tfont: bold 12px Arial, Helvetica,
+        sans-serif;\n    color: #1C6AAF\n}\nDIV.bajaJuridica{\n    width: 45%;\n    text-align:
+        justify;\n    font: 12px Arial, Helvetica, sans-serif;\n    color: #000000;\n
+        \   float: left;\n    margin-left: 10%;\n}\n\nINPUT.baja_file{\n\twidth: 351px;\n}\n\nINPUT.baja_text{\n\twidth:
+        347px;\n}\n\nSELECT.baja_select{\n\twidth: 347px;\n}\n\nDIV.baja{\n\tfont:
+        normal 12px Verdana, Helvetica, sans-serif;\n\tmargin-bottom: 5px; \n}\n\nDIV.baja
+        SPAN.highlight {\n\tcolor: #C20E1A;\n}\n\nDIV.entiendo{\n\tfont: bold 12px
+        Verdana, Helvetica, sans-serif;\n\ttext-align: right;\n\tposition: relative;\n\tdisplay:
+        inline-block;\n\tmargin-bottom: 10px;\n}\n\nDIV.obligatorios{\n\tposition:
+        absolute;\n\tbottom: 0px;\n\tleft: 30px;\n\tfont: italic 12px Verdana, Helvetica,
+        sans-serif;\n}\n\n#entiendo{\n\tmargin-left:2px;\n\tmargin-right:5px;\n}\n\nDIV.hint{\n
+        \   font: italic 12px Verdana, Helvetica, sans-serif;\n    color: grey;\n
+        \   width: 348px;\n    text-align: left;\n    margin-left: 156px;\n\tmargin-bottom:
+        5px;\n}\n\nDIV.form_baja_title{\n\tfont: bold 14px Verdana, Helvetica, sans-serif;\n\ttext-align:
+        center;\n\tmargin-bottom: 10px;\n}\n\nFORM.baja{\n\ttext-align: right;\n\twidth:
+        505px;\n\tmargin: 0 auto;\n\tposition: relative;\n}\n\n\n#baja_error{\n\tmargin-top:
+        5px;\n\tmargin-bottom: 5px;\n\tcolor: #C20E1A;\n\tfont: bold 12px Tahoma,
+        Helvetica, sans-serif;\n\ttext-align: center;\n\tline-height: 15px;\n}\n\nDIV.baja-submit-container
+        {\n    text-align:right;\n    margin-top:10px;\n}\n\n.maps {\n    font-family:
+        auto;\n    font-size: 18px;\n    color: #313131 !important;\n    border-bottom:
+        dashed #e8e8e8 1px;\n    padding-bottom: 5px;\n    margin-bottom: 5px;\n    margin-top:
+        9px;\n}\n\n@media (max-width: 500px) {\n    .search-top-bar-container>* {\n
+        \       flex-direction: column;\n    }\n\n    DIV.fisicaJuridica{\n        height:
+        auto;\n    }\n\n    DIV.bajaFisica {\n        width: 100%;\n    }\n\n    DIV.bajaJuridica{\n
+        \       width: 100%;\n        margin-left: 0;\n        margin-top: 10px;\n
+        \   }\n\n    DIV.baja SPAN.form-label{\n        display: block;\n        width:
+        100%;\n        text-align: left;\n    }\n\n    INPUT[type=text] {\n        width:
+        80%;\n    }\n\n    FORM.baja {\n        width: 100%;\n        text-align:
+        left;\n        margin-bottom: 50px;\n    }\n\n    DIV.hint {\n        text-align:
+        left;\n        margin-left: 0;\n        width: 100%;\n    }\n\n    DIV.entiendo
+        {\n        width: 100%;\n        text-align: center;\n    }\n\n    TABLE.baja-captcha
+        {\n        width: 100% !important;\n    }\n\n    TD.baja-captcha-img {\n        display:
+        block;\n        text-align: center;\n    }\n\n    TD.baja-captcha-text {\n
+        \       display: block;\n        text-align: center;\n    }\n\n    DIV.obligatorios
+        {\n        bottom: -50px;\n    }\n\n    FORM.baja INPUT[type=submit] {\n        width:
+        90% !important;\n    }\n\n    DIV.baja-submit-container {\n        text-align:center;\n
+        \   }\n}\n\n\n/*------------------persona.php-----------------*/\n\nh1.p_title{\n\tpadding:
+        10px 10px;\n\tmargin-bottom: 10px;\n\tposition: relative;\n    color: #676767;\n
+        \   font-size: 2em;\n}\n\nDIV.persona-informes {\n    height: auto;\n    background-color:
+        #f0f0f0;\n    margin-top: 9px;\n    padding-bottom: 10px;\n    display: flex;\n
+        \   width: 100%;\n}\n\nDIV.persona-informes > DIV {\n    float: left;\n    border-left:
+        solid #d6d6d6 1px;\n    margin-top: 15px;\n    padding: 0 10px 0 20px;\n    min-height:
+        52px;\n    display: inline-block;\n    background-image: none;\n}\n\nDIV.persona-informes
+        > DIV > DIV > SPAN.informes-nombre-corto {\n    display: none;\n    font-size:
+        14px; \n    margin: 10px 0;\n}\n\nDIV.persona-informes > DIV > DIV > SPAN.informes-nombre-largo
+        {\n    display: block;\n    font-size: 16px; \n    margin: 15px 0;\n}\n\nDIV.persona-informes
+        DIV:first-child {\n    border-left: none;\n}\n\nDIV.afip {\n    width: 22%;\n}\n\nDIV.rentas
+        {\n    width: 18%;\n}\n\nDIV.banco-central {\n    width: 22%;\n}\n\nDIV.dateas
+        {\n    width: 18%;\n}\n\nDIV.afip DIV.titulo_box_informes {\n    color: #424242;\n}\n\nDIV.rentas
+        DIV.titulo_box_informes {\n    color: #E5880F;\n}\n\nDIV.banco-central DIV.titulo_box_informes
+        {\n    color: #1D6AC2;\n}\n\nDIV.dateas DIV.titulo_box_informes {\n    color:
+        #267F00;\n}\n\nDIV.titulo_box_informes{\n    float: none;\n    font: bold
+        12px Arial;\n    margin-bottom: 5px;\n    /*min-height: 100%;*/\n    height:
+        auto;\n    text-align: left;\n}\n\nUL.p_listaInformes{\n    padding: 0px;\n
+        \   margin: 0;\n    text-align: left;\n    display: block;\n}\n\nUL.p_listaInformes-mobile
+        {\n    display: none;\n}\n\nUL.p_listaInformes LI{\n    display: block;\n
+        \   color: #676767;\n    list-style: none;\n}\n\nUL.p_listaInformes LI A {\n
+        \   text-decoration: none;\n    font-size: 12px;\n    color: #676767;\n}\n\nDIV.persona-info-container
+        {\n    height: auto;\n    position:relative;\n    text-align: left;\n    margin:
+        22px 0 0 0;\n    min-height: 338px;\n}\n\nDIV.persona-data {\n    float: left;\n
+        \   width: calc(100% - 330px);\n    padding: 0 10px 0 0;\n}\n\n@media (max-width:
+        1170px) {\n\n    DIV.persona-info-container {\n\n    }\n\n    DIV.persona-data
+        {\n        padding: 0 2% 0 2%;\n    }\n}\n\nDIV.p_infoPersona{\n\twidth: 440px;\n\ttext-align:
+        left;\n    margin-left: 10px;\n}\n\nUL.p_info{\n    margin-bottom: 10px;\n
+        \   padding-left: 0px;\n    margin-top: 0;\n}\n\n.p_cuit_title{\n    font:18px
+        Arial !important;\n    color: #313131 !important;\n    border-bottom: dashed
+        #e8e8e8 1px;\n    padding-bottom: 5px;\n    margin-bottom: 5px;\n}\n\nUL.p_info
+        LI{\n    display: block;\n    font: 16px Arial, sans-serif;\n    color: #676767;\n
+        \   list-style: none;\n    margin: 10px 0;\n}\n\n.c_black{\n\tcolor: #494949;\n
+        \   font: 12px Arial, sans-serif;\n    font-weight: bold;\n}\n\n.constancia_link{\n
+        \   text-decoration: none;\n    color: #000;\n    font-size: 12px;\n    font-weight:
+        bold;\n}\n\nDIV.persona-map {\n    position: absolute;\n    top: 0;\n    right:
+        0;\n    margin-right: 2px;\n    width: 300px;\n    min-height: 334px;\n}\n\nDIV.p_map_background{\n\tbackground:
+        url('../images/mapa2.png') no-repeat;\n\twidth: 300px;\n\theight: 338px;\n}\n\nDIV.p_map_background2{\n
+        \   background: url('../images/mapa1.png') no-repeat;\n    width: 300px;\n
+        \   height: 700px;\n}\n\nDIV.p_map_background DIV.map-text-expl {\n    position:
+        absolute;\n    bottom: 2px;\n    left: 0;\n    font-size: 12px;\n    background-color:
+        #6b6b6b;\n    opacity: .6;\n    color: #FFF;\n    font: 12px Arial, sans-serif;\n
+        \   text-align: justify;\n    padding: 10px 10px;\n}\n\nDIV.p_map_background2
+        DIV.map-text-expl {\n    position: absolute;\n    bottom: 0px;\n    left:
+        0;\n    font-size: 12px;\n    background-color: #6b6b6b;\n    opacity: .6;\n
+        \   color: #FFF;\n    font: 12px Arial, sans-serif;\n    text-align: justify;\n
+        \   padding: 10px 10px;\n}\n\nDIV.p_btnUbicarMapa{\n\tbackground: url('../images/localizar-en-mapa.png')
+        no-repeat;\n    background-size: 100%;\n\twidth: 210px;\n\theight: 90px;\n\tposition:
+        absolute;\n\ttop: 30%;\n\tleft: 45px;\n}\nDIV.mapa_deshabilitado{\n    background:
+        url('../images/mapa-no-disponible.png') no-repeat;\n}\n\nIFRAME.map-iframe
+        {\n    overflow: hidden;\n    border: none;\n    text-align: center;\n}\n\nDIV.banner-entre-datos
+        {\n    display: none;\n}\n\n/*-------------------------------- B\xDASQUEDA
+        AVANZADA ----------------------------------*/\nDIV.informes-constancias-head
+        {\n    background-color: #ff7a41;\n    font-weight: bold;\n    font-size:14px;\n
+        \   color:#FFF;\n    padding: 14px 5px;\n    margin: 12px 0px 11px;\n}\n\n\nDIV.informe_dateas,
+        DIV.informe_gratuito{\n\twidth: 100%;\n\tmargin: 0 auto;\n\theight: 177px;\n\tposition:
+        relative;\n    background-color: #f0f0f0;\n}\nDIV.informe_gratuito{\n\tmargin-bottom:
+        44px;\n    height: 150px;\n}\n\nDIV.informe_tipo{\n\tfont: 18px Arial, sans-serif;\n
+        \   line-height: 22px;\n\tcolor: #313131;\n\tmargin: 0px 0px 1px 0px;\n    background-color:
+        #dedede;\n    padding: 5px;\n    text-align: center;\n}\n\nDIV.informe_tipo
+        DIV.titulo-informe {\n    background: url('../images/info_icon.png') no-repeat;\n
+        \   background-position: center left;\n    padding: 2px 0px 2px 30px;\n    margin:
+        0 auto;\n    text-align: center;\n    display: inline-block;\n}\n\nDIV.seleccione_dateas{\n\tposition:
+        absolute;\n\tleft: 54px;\n\tfont: bold 12px Arial;\n\tcolor: #323232;\n}\n\nDIV.seleccione_gratuito{\n
+        \   position: absolute;\n    top: -23px;\n    left: 2px;\n    font: bold 12px
+        Arial;\n    color: #323232;\n}\n\nDIV.radio_btns{\n\tposition: absolute;\n\ttop:
+        104px;\n\tleft: 48px;\n\ttext-align: left;\n\tline-height: 5px;\n    font:
+        12px Arial;\n    color: #323232;\n}\n\nDIV.radio_btns INPUT{\n    display:
+        block;\n    margin: 2px 0 0 2px;\n    float: left;\n    padding: 0;\n}\n\nDIV.radio_btns
+        LABEL {\n    display: block;\n    float: left;\n    margin: 0 10px 0 5px;\n
+        \   padding: 2px 0 0 0;\n}\n\nDIV.text_inputs{\n    position: absolute;\n
+        \   top: 19px;\n    right: 50px;\n    text-align: right;\n\tcolor: #323232;\n\tfont:
+        12px Arial;\n}\n\nDIV.text_inputs INPUT, DIV.select_cuit INPUT {\n    padding:
+        7px 1px 7px 5px;\n    height: 16px;\n}\n\nDIV.text_inputs INPUT, DIV.select_cuit
+        INPUT{\n    width: 294px;\n    border: solid #dfdfdf 1px;\n    margin-bottom:
+        3px;\n}\n\n.pedir_informe_btn {\n    background: url('../images/informe_btn.png')
+        no-repeat;\n\tposition: absolute;\n\tbottom: 15px;\n\tright: 181px;\n\twidth:
+        170px;\n\theight: 28px;\n\tborder: none;\n\tcursor: pointer;\n}\n\n.pedir_informe_btn
+        SPAN {\n    display: none;\n}\n\nDIV.pedir-informe-btn-container {\n    position:
+        absolute;\n    bottom: 15px;\n    width: 100%;\n    text-align: center;\n}\n\nDIV.pedir-informe-btn-container
+        .pedir_informe_btn {\n    position: relative;\n    bottom: 0;\n    right:
+        0;\n}\n\nDIV.select_cuit{\n\tposition: absolute;\n\ttop: 38px;\n\tleft:52px;\n
+        \   color: #323232;\n    font: 12px Arial;\n    width: 87%;\n}\n\nDIV.co-select-like
+        {\n    width: 230px;\n    height: 30px;\n    overflow: hidden;\n    background:
+        url('../images/select.jpg') no-repeat 203px #FFF;\n    border: solid #dfdfdf
+        1px;\n    float: left;\n}\n\nDIV.select_cuit SELECT {\n    float: left;\n
+        \   font: 12px Arial;\n    width: 255px;\n    padding: 6px 5px 8px 5px;\n
+        \   -webkit-appearance: none;\n    border: none;\n    line-height: 15px;\n
+        \   background: transparent;\n}\n\nDIV.text_inputs_gratuito {\n    position:
+        absolute;\n    top: 0;\n    right: 0px;\n    text-align: right;\n    color:
+        #323232;\n    font: 12px Arial;\n}\n\n#error_gratuito, #error_dateas{\n\tposition:
+        absolute;\n\ttop: 10px;\n\tleft: 0;\n\twidth: 100%;\n\ttext-align: center;\n\tfont:
+        bold 12px Arial;\n\tcolor: #c20e1a;\n}\n\nDIV.impuestos_activos{\n    font:
+        12px Verdana;\n    color: #444;\n    text-align: left;\n    margin: 0 20px;\n}\n\nH2.impuestos_activos{\n
+        \   /* margin: 5px 0 3px 0; */\n    padding: 0;\n    font: bold 16px Verdana;\n
+        \   color: #444;\n    margin: 15px 0;\n}\n\n/* DIVISAS */\n\nDIV.divisas-heading-bar
+        {\n    position: relative;\n    padding: 3px;\n    margin: 0 0 1px 0;\n    background:
+        #f0f0f0;\n    height: 50px;\n    text-align: center;\n}\n\nDIV.divisas-heading-bar
+        DIV.more-divisas {\n    padding-top: 18px;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas
+        A.dolar SPAN {\n    background: url('../images/USA_flag.jpg') left center
+        no-repeat;\n    padding-left: 30px;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas
+        A.euro SPAN {\n    background: url('../images/UE_flag.jpg') left center no-repeat;\n
+        \   padding-left: 30px;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas A.real
+        SPAN {\n    background: url('../images/Brazil_flag.jpg') left center no-repeat;\n
+        \   padding-left: 30px;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas A.bitcoin
+        SPAN {\n    background: url('../images/BTC_icon.png') left center no-repeat;\n
+        \   padding-left: 30px;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas A.uva
+        SPAN {\n    background: url('../images/UVA_icon.png') left center no-repeat;\n
+        \   padding-left: 30px;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas A.divisa-link-selected
+        \ {\n    background-color: #DDD;\n    border-radius: 18px;\n}\n\nDIV.divisas-heading-bar
+        DIV.more-divisas A {\n    text-decoration: none;\n    line-height: 18px;\n
+        \   padding: 9px 9px 9px 12px;\n    margin: 0 3px;\n    font: 14px Arial,sans-serif;\n
+        \   color: #726363;\n}\n\nDIV.divisas-heading-bar H1 {\n    padding: 0;\n
+        \   margin: 3px 0 0 0;\n    font-family: Arial,sans-serif;\n    font-size:
+        18px;\n    color: #676767;\n    font-weight: normal;\n    width: 300px;\n
+        \   line-height: 18px;\n    height: 18px;\n\n}\n\nDIV.divisas-blue-bar {\n
+        \   font-family: Arial,sans-serif;\n    height: 56px;\n    width: 100%;\n}\n\nDIV.divisas-blue-bar
+        DIV.dark-side {\n    position: relative;\n    float: left;\n    padding: 10px
+        3% 0px 2%;\n    background: #19649e url('../images/cotizacion_bkg.png') center
+        right no-repeat;\n    width: 39%;\n    height: 50px;\n    font-size: 14px;\n
+        \   color: #afdcff;\n    text-align: left;\n}\n\nDIV.divisas-blue-bar DIV.dark-side-alert
+        {\n    background: #E42512 url('../images/cotizacion_bkg.png') center right
+        no-repeat;\n    color: #FFFFFF;\n}\n\nDIV.alert-image {\n    position: absolute;\n
+        \   left: 1.5%;\n    top: 23px;\n}\n\nDIV.divisas-blue-bar DIV.light-side
+        {\n    position: relative;\n    float: left;\n    padding: 0;\n    background:
+        #1f7ac1;\n    width: 56%;\n    height: 60px;\n    font-size: 24px;\n    color:
+        #afdcff;\n    font-weight: bold;\n}\n\n\nDIV.divisas-blue-bar DIV.light-side
+        DIV.currencyValue {\n    float: left;\n    width: 50%;\n    height: 52px;\n
+        \   margin-top:-2px;\n    text-align: center;\n    display: -webkit-box;\n
+        \   display: -ms-flexbox;\n    display: flex;\n    height: 100%;\n    -webkit-box-align:
+        center;\n       -ms-flex-align: center;\n          align-items: center;\n
+        \   -webkit-box-pack: center;\n       -ms-flex-pack: center;\n     justify-content:
+        center;\n}\n\nDIV.currencyValue SPAN.currency-label{\n    font-weight: normal;\n
+        \   font-size: 0.7em;\n}\n\nDIV.currencyValue SPAN.currency-value{\n    color:
+        white;\n    font-size: 0.9em;\n}\n\nDIV.divisas-blue-bar DIV.light-side DIV.separator{\n
+        \   border-right: solid #afdcff 1px ;\n    width:0px;\n    height: 40px;\n
+        \   margin: 10px 0;\n    padding: 0;\n    margin-right: -1px;\n    float:left;\n}\n\nDIV.divisas-data-container
+        {\n    height: auto;\n    position:relative;\n    text-align: center;\n    margin:
+        4px auto 0px auto;\n    padding: 10px 10px 0px 10px;\n    min-height: 470px;\n
+        \   border: solid #f0f0f0 1px;\n}\n\nDIV.divisas-chart-container {\n    float:
+        left;\n    width: 65%;\n    height: 262px;\n}\n\nDIV.divisas-table-container
+        {\n    float: right;\n}\n\n\n@media (max-width: 1060px) {\n\n    DIV.divisas-chart-container
+        {\n        float: none;\n        margin: 0;\n        width: 100%;\n    }\n\n
+        \   DIV.divisas-table-container {\n        display: inline-block;\n        float:
+        none;\n        margin: 14px auto 0 auto;\n    }\n\n    DIV.divisas-heading-bar
+        DIV.more-divisas A {\n        spadding: 2px 5px 2px 0px;\n    }\n\n}\n\n@media
+        (max-width: 1170px) {\n    DIV.categories {\n        margin-left: 14px;\n
+        \   }\n\n    A.link-logo {\n        margin-left: 14px;\n    }\n\n\n}\n\nSPAN.divisas-name-long
+        {\n    display: inline;\n}\n\nSPAN.divisas-name-short {\n    display: none;\n}\n\n#flot-tooltip
+        {\n    font-size: 12px;\n    font-family: Verdana, Arial, sans-serif;\n    position:
+        absolute;\n    display: none;\n    border: 2px solid;\n    padding: 2px;\n
+        \   background-color: #FFF;\n    opacity: 0.8;\n    -moz-border-radius: 5px;\n
+        \   -webkit-border-radius: 5px;\n    -khtml-border-radius: 5px;\n    border-radius:
+        5px;\n    text-align: left;\n}\n\nDIV.er-buy-and-sale {\n    padding-top:
+        5px;\n}\nDIV.er-buy-and-sale H2 {\n    font-size: 2em;\n}\n\nH3.er-daily-hsitory-title
+        {\n    margin-top: 0px;\n    margin-bottom: 8px;\n    background: #f0f0f0;\n
+        \   padding: 8px 0px 6px 0;\n    height: 20px;\n    width: 240px;\n    font:
+        bold 14px Arial,sans-serif;\n}\n\nDIV.tableHeading {\n    position: relative;\n
+        \   width: 240px;\n    background: #f0f0f0;\n    margin: 0;\n    padding:
+        0;\n    text-align: left;\n}\n\nDIV.tableHeading TABLE TR TD {\n    padding:
+        3px 0px;\n    font: 12px bold arial,sans-serif;\n    font-weight: bold;\n
+        \   color: #1c6bc4;\n    text-align: center;\n}\n\nDIV.tableBody {\n    height:
+        200px;\n    overflow-y: scroll;\n    overflow-x: hidden;\n    width: 240px;\n
+        \   text-align: center;\n    margin: 0;\n    padding: 0;\n}\n\nDIV.tableBody
+        TABLE {\n}\n\nDIV.tableBody TABLE TR TD {\n    padding: 0px 0;\n    border-bottom:
+        solid #e8e8e8 1px;\n    font: 12px Arial, sans-serif;\n    color: #676767;\n
+        \   text-align: center;\n}\n\n.col-hora {\n    width: 60px;\n}\n\n.col-indicator
+        {\n    width: 10px;\n}\n\n.col-compra {\n    width: 80px;\n}\n\n.col-venta
+        {\n    width: 74px;\n}\n\nTR.grey-row {\n    background: #f7f7f7;\n}\n\n/*
+        WIDGET HEADER */\nDIV.divisas-widget {\n    position: absolute;\n    right:
+        -23px;\n    top: 6px;\n    width: 180px;\n}\n\nTABLE.divisas-table {\n    width:100%;\n
+        \   font-family: Arial, sans-serif;\n    font-size: 12px;\n}\n\nTABLE.divisas-table
+        TR TD{\n    padding: 1px 0px;\n}\n\nTABLE.divisas-table TR TD.value {\n    text-align:
+        center;\n}\n\nTABLE.divisas-table TR TD.label {\n    text-align: right;\n
+        \   padding-right: 4px;\n}\n\nTABLE.divisas-table TR TD.label A {\n    font-weight:
+        bold;\n    color: #818181;\n    text-decoration: none;\n}\n\nTABLE.divisas-table
+        TR TD.value {\n    color: #1f7ac1;\n}\n\nTABLE.divisas-table THEAD TR TD {\n
+        \   color: #cccccc;\n    text-decoration: underline;\n    text-align: center;\n
+        \   font-size: 10px;\n}\n\nTABLE.divisas-table TFOOT TR TD {\n    font-size:
+        10px;\n    color: #9A9A9A;\n    text-align: center;\n    padding-top: 8px;\n}\n\n/*
+        FAQS */\nDIV.bodyBajas {\n    width: 95%;\n    max-width:1170px;\n}\n\nDIV.bodyBajas
+        UL{\n     text-align: left;\n     list-style: none;\n     margin-bottom: 35px;\n
+        }\n\nDIV.bodyBajas H2{\n    color: #1C6BB0;\n    font-size: 14px;\n    padding:
+        0;\n    margin-top: 20px;\n    margin-bottom: 10px;\n    line-height: 1;\n}\n\nDIV.bodyBajas
+        P{\n    color: #49495A;\n    font-weight: normal;\n    line-height: 14px;\n
+        \   margin: 0;\n    padding: 0;\n}\n\n/* ASK CAPTCHA */\n\nDIV.header-popup
+        {\n    position:relative;\n    height:80px;\n    padding-top: 30px;\n    margin:0
+        auto;\n    text-align:center;\n    background-color: #f1f1f1;\n    width:
+        100%;\n}\n\nDIV.captcha-text {\n    position:relative;\n    width:680px;\n
+        \   height:auto;\n    margin:40px auto 0px auto;\n    padding-top:10px;\n
+        \   text-align:left;\n    font:16px Arial, sans-serif;\n    color:#494949;\n}\n\nDIV.captcha-form
+        {\n    position:relative;\n    width:700px;\n    height:auto;\n    margin:0px
+        auto;\n    padding-top:5px;\n    text-align:center;\n    font:bold 12px Arial,
+        Helvetica, sans-serif;\n    color:#666666;\n}\n\nTD.captcha-image {\n    text-align:
+        left;\n}\n\nTD.captcha-input-text {\n    text-align: left;\n    color: #494949;\n
+        \   padding-left: 10px;\n}\n\nTD.captcha-input-text INPUT {\n    background-color:#FFFFFF;\n
+        \   border:solid 1px #d4d4d4;\n    font:12px Arial, sans-serif;\n    color:#494949;\n
+        \   text-align:center;\n    margin:5px 0px;\n    width: 200px;\n    height:
+        24px;\n}\n\nTABLE.button-container-table {\n    margin: 24px auto 0 auto;\n}\n\nBUTTON.obtener-constancia
+        {\n    background-color: #1f7ac1;\n\tpadding: 7px 21px 7px 21px;\n    font:bold
+        14px Arial, Helvetica, sans-serif;\n    color:#FFF;\n    border: none;\n    width:
+        340px;\n    height: 40px;\n    cursor: pointer;\n}\n\nBUTTON.obtener-constancia
+        > SPAN {\n    display: block;\n}\n\n#_loadingImage {\n    position: absolute;\n
+        \   top: 8px;\n    left: 11px;\n    display: none;\n}\n\n/* BCRA CAPTCHA */\n\nDIV.bcra-captcha-container
+        {\n    position:relative;\n    width:700px;\n    height:auto;\n    margin:0px
+        auto;\n    padding-top:5px;\n    text-align:center;\n    font:bold 12px Arial,
+        Helvetica, sans-serif;\n    color:#333333;\n}\n\nDIV.bcra-captcha-button-container
+        {\n    position: relative;\n    width:205px;\n    margin:0 auto;\n}\n\n/*
+        DATEAS CAPTCHA */\n\nDIV.captchaBody {\n    width:510px;\n    margin-left:auto;\n
+        \   margin-right:auto;\n    margin-top: 40px;\n}\n\nDIV.info {\n    position:relative;\n
+        \   height:auto;\n    margin:0px auto;\n    padding-top:10px;\n    text-align:left;\n
+        \   font:12px Arial, Helvetica, sans-serif;\n    color:#313131;\n}\n\nDIV.dateas-captcha-form
+        {\n    width: 100%;\n    margin: 20px auto 0 auto;\n}\n\nDIV.dateas-captcha-form-column
+        {\n    text-align: left;\n    width: 215px;\n    float: left;\n}\n\nDIV.dateas-captcha-form-column
+        DIV {\n    position: relative;\n    font-weight: bold;\n    height: 50px;\n
+        \   margin-top: 10px;\n}\nDIV.dateas-captcha-form-column DIV.wide {\n    width:
+        250px;\n}\nDIV.dateas-captcha-form BUTTON {\n    position: absolute;\n    right:
+        0;\n    bottom: 0;\n}\n\nDIV.banner-results-for-mid {\n    display: none;\n}\n\nSPAN.tax-period
+        {\n    /* font-size: 0.9em; */\n    color: #3a6dbf;\n}\n\nSPAN.regimen-type,\nSPAN.activity-order
+        {\n    color: #395050;\n    font-weight: bold;\n}\n\nLI.afip-error-msg {\n
+        \   background-color: #ffe8bc;\n    margin: 5px auto;\n}\n\nLI.afip-error-msg
+        UL {\n    background-color: #fffbcc;\n    list-style: square inside !important;\n
+        \   padding: 0;\n}\n\nLI.afip-error-msg H2 {\n\tpadding:6px 12px;\n}\n\nLI.afip-error-msg
+        UL LI {\n    color: #000;\n    padding: 6px 5px 6px 17px;\n    border-top:
+        solid #FFF 1px;\n}\nLI.afip-error-msg UL LI SPAN {\n    position:absolute;\n
+        \   margin-left:-10px;\n}\n\n@media (max-width: 550px) {\n    DIV.mapa_deshabilitado
+        {\n        background: url('../images/mapa-no-disponible_2x.png') no-repeat;\n
+        \       background-size: contain;\n    }\n}\n\n\n.adbymjp {\n    margin-top:
+        12px;\n    margin-bottom: 12px;\n    width: 100%;\n    min-height: 300px;\n
+        \   text-align: center;\n    position: relative;\n}\n\n.ads-blur-bar {\n    position:
+        absolute;\n    z-index: 1;\n    width: 100%;\n    height: 100%;\n    top:
+        0;\n    left: 0;\n}\n\n.ads-blur-bar {\n    display: none;\n}\n.pigeon-blur[unselectable]
+        + .ads-blur-bar {\n    display: block;\n}\n\n.ads-top-bar .adbymjp, .ads-blur-bar
+        .adbymjp {\n    min-height: inherit;\n}\n\n.ads-top-bar .adbymjp > *, .ads-top-bar
+        .adbymjp > * > *     {\n    width: 100%;\n}\n#searchResults, #detailResults
+        {\n    position: relative;\n}\n.ads-blur-bar .adbymjp {\n    padding-top:
+        25px;\n    display: flex;\n    justify-content: center;\n}\n\n.adbymjp .adbymjp-tip
+        {\n    padding-bottom: 5px;\n    font-size: 12px;\n    color: #b5b5b5;\n}\n\n\n/*\n
+        \ mobile <=767\n  tablet >=768 && <=1024\n  desktop >= 1025 \n*/\n\n.adbymjp.home-co_left1
+        {\n    margin-top: 100px;\n    margin-bottom: 100px;\n}\n\n/* only desktop
+        */\n/* @media only screen and (min-width: 1025px) {} */\n\n/* mobile and tablet
+        */\n/* @media only screen and (max-width: 1024px) {} */\n\n/* tablet and up
+        */\n/* @media screen and (min-width: 768px) {} */\n\n/* only mobile */\n@media
+        only screen and (max-width: 767px) {\n    .adbymjp.home-co_left1 {\n        margin-top:
+        40px;\n    }\n}\ndiv#div-gpt-leaderboard {\n    display: flex;\n    justify-content:
+        center;\n}\n\n.adbymjp .non-mobile {\n     display: block;\n }\n\n.adbymjp
+        .mobile {\n    display: none;\n}\n\n@media (max-width: 550px) {\n    .adbymjp
+        .non-mobile {\n        display: none;\n    }\n\n    .adbymjp .mobile {\n        display:
+        block;\n    }\n}\n\n\n/* partnership cta */\n\n.animated-cta {\n    /* display:
+        flex; */\n    align-items: center;\n    gap: 10px;\n    /* background: linear-gradient(135deg,
+        #2a5f87 0%, #3a7cb9 100%); */\n    /* color: white; */\n    border: none;\n
+        \   padding: 14px 28px;\n    /* border-radius: 6px; */\n    /* font-weight:
+        bold; */\n    cursor: pointer;\n    /* font-size: 1.1em; */\n    transition:
+        all 0.4s ease;\n    /* box-shadow: 0 4px 15px rgba(42, 95, 135, 0.3); */\n}\n\n.cta-container
+        .animated-cta {\n    padding: 0 3px;\n    /*font-size: .7em;*/\n}\n\n.cta-container
+        .animated-cta .emoji, .cta-container .animated-cta .arrow {\n    display:
+        none;\n}\n\n.search-top-bar-container .cta-container {\n    color: #666;\n
+        \   /*border-right: 1px solid #dcdcdc;*/\n    /*padding-right: 10px;*/\n    /*margin-right:
+        13px;*/\n}\n\n@media (max-width: 550px) {\n    .cta-container {\n        margin-top:
+        10px;\n    }\n\n    .cta-container .animated-cta {\n        /*padding: 3px;*/\n
+        \       /*font-size: 1.1em;*/\n    }\n}\n\n/*.animated-cta:hover {*/\n/*    transform:
+        translateY(-3px);*/\n/*    box-shadow: 0 8px 20px rgba(42, 95, 135, 0.4);*/\n/*
+        \   background: linear-gradient(135deg, #3a7cb9 0%, #2a5f87 100%);*/\n/*}*/\n\n/*.animated-cta:active
+        {*/\n/*    transform: translateY(1px);*/\n/*}*/\n\n.animated-cta .arrow {\n
+        \   opacity: 0;\n    transition: opacity 0.3s ease;\n}\n\n\n.home-stack {\n
+        \   display: flex;\n    flex-flow: row;\n    flex-direction: row;\n    justify-content:
+        center;\n    align-items: center;\n}\n\n.home-stack>.col {\n    display: flex;\n
+        \   flex-flow: column;\n    justify-content: space-evenly;\n}\n\n/* Partner
+        Showcase Sidebar */\n.partner-sidebar {\n    width: 66.6%;\n    margin: auto;\n
+        \   display: flex;\n    flex-direction: column;\n    gap: 1.5rem;\n}\n\n.partner-showcase
+        {\n    background: white;\n    border-radius: 1rem;\n    padding: 1.5rem;\n
+        \   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);\n}\n\n.showcase-header
+        {\n    display: flex;\n    align-items: center;\n    gap: 0.5rem;\n    margin-bottom:
+        1rem;\n}\n\n.showcase-header h3 {\n    font-size: 1.1rem;\n    font-weight:
+        600;\n    color: #1e293b;\n}\n\n.verified-badge {\n    background: #10b981;\n
+        \   color: white;\n    font-size: 0.75rem;\n    padding: 0.25rem 0.5rem;\n
+        \   border-radius: 1rem;\n    font-weight: 500;\n}\n\n.partner-card {\n    border:
+        1px solid #e2e8f0;\n    border-radius: 0.75rem;\n    padding: 1rem;\n    margin-bottom:
+        1rem;\n    transition: all 0.3s ease;\n    position: relative;\n}\n\n.partner-card:hover
+        {\n    border-color: #1f7ac1;\n    box-shadow: 0 4px 6px -1px rgba(0, 0, 0,
+        0.1);\n}\n\n.partner-card>a {\n    position: absolute;\n    width: 100%;\n
+        \   height: 100%;\n    left: 0;\n    top: 0;\n}\n\n.partner-header {\n    display:
+        flex;\n    align-items: center;\n    gap: 0.75rem;\n    margin-bottom: 0.75rem;\n}\n\n.partner-logo
+        {\n    width: 40px;\n    height: 40px;\n    border-radius: 0.5rem;\n    background:
+        linear-gradient(135deg, #1f7ac1, #47475a);\n    display: flex;\n    align-items:
+        center;\n    justify-content: center;\n    color: white;\n    font-weight:
+        600;\n    font-size: 0.875rem;\n}\n\n.partner-info h4 {\n    font-size: 0.9rem;\n
+        \   font-weight: 600;\n    color: #1e293b;\n    text-align: left;\n    line-height:
+        2em;\n}\n\n.partner-info p {\n    font-size: 0.8rem;\n    color: #64748b;\n
+        \   text-align: left;\n    margin-top: 10px;\n}\n\n.partner-services {\n    margin-bottom:
+        0.75rem;\n}\n\n.service-tag {\n    display: inline-block;\n    background:
+        #f1f5f9;\n    color: #64748b;\n    font-size: 0.75rem;\n    padding: 0.25rem
+        0.5rem;\n    border-radius: 0.25rem;\n    margin-right: 0.5rem;\n    margin-bottom:
+        0.25rem;\n}\n\n.partner-contact {\n    width: 100%;\n    background: #1f7ac1;\n
+        \   color: white;\n    border: none;\n    padding: 0.5rem;\n    border-radius:
+        0.5rem;\n    font-size: 0.875rem;\n    font-weight: 500;\n    cursor: pointer;\n
+        \   transition: all 0.3s ease;\n}\n\n.partner-contact:hover {\n    background:
+        #2563eb;\n    transform: translateY(-1px);\n}\n\n/* Inline Partner Card */\n.inline-partner
+        {\n    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);\n    border:
+        2px solid #1f7ac1;\n    border-radius: 0.75rem;\n    padding: 1rem;\n    margin:
+        1rem 0;\n    position: relative;\n    overflow: hidden;\n}\n\n.inline-partner::before
+        {\n    content: '';\n    position: absolute;\n    top: 0;\n    left: 0;\n
+        \   right: 0;\n    height: 3px;\n    background: linear-gradient(90deg, #1f7ac1,
+        #999);\n}\n\n.sponsored-tag {\n    position: absolute;\n    top: 0.5rem;\n
+        \   right: 0.5rem;\n    background: #fbbf24;\n    color: #92400e;\n    font-size:
+        0.75rem;\n    padding: 0.25rem 0.5rem;\n    border-radius: 0.25rem;\n    font-weight:
+        500;\n}\n\n.inline-content {\n    display: flex;\n    align-items: center;\n
+        \   justify-content: space-between;\n    gap: 1rem;\n}\n\n.inline-info h4
+        {\n    color: #1e293b;\n    font-weight: 600;\n    margin-bottom: 0.25rem;\n}\n\n.inline-info
+        p {\n    color: #64748b;\n    font-size: 0.875rem;\n}\n/* Responsive Design
+        */\n@media (max-width: 768px) {\n\n    .partner-sidebar {\n        order:
+        -1;\n    }\n\n    .inline-content {\n        flex-direction: column;\n        text-align:
+        center;\n    }\n}\n\n/* Animation */\n@keyframes slideInFromRight {\n    from
+        {\n        opacity: 0;\n        transform: translateX(20px);\n    }\n    to
+        {\n        opacity: 1;\n        transform: translateX(0);\n    }\n}\n\n.partner-card
+        {\n    animation: slideInFromRight 0.6s ease-out;\n}\n\n.partner-card:nth-child(2)
+        { animation-delay: 0.1s; }\n.partner-card:nth-child(3) { animation-delay:
+        0.2s; }\n.partner-card:nth-child(4) { animation-delay: 0.3s; }\n\n.partners-mobile
+        { display: none; }\n\n\n.pigeon-widget-status { float: right; margin: 2px
+        0 0 0; }\n.pigeon-widget-status ul { margin: 0; padding: 0; }\n.pigeon-widget-status
+        ul li { float: left; list-style: none; }\n/*.pigeon-widget-status ul li:not([style*=\"display:none\"])+li
+        { color: #666; border-left: 1px solid #dcdcdc; padding-left: 10px; margin-left:
+        13px; }*/\n.pigeon-widget-status ul li { color: #666; border-left: 1px solid
+        #dcdcdc; padding-left: 10px; margin-left: 13px; }\n.pigeon-widget-status ul
+        li a:hover { color: #517ABA; }\n.pigeon-widget-status ul li:first-child a
+        { border: none; padding: 0; margin: 0; }\n@media only screen and (max-width:
+        720px) {\n    .pigeon-widget-status {\n        float: none; width: 100%; margin:
+        0; padding: 10px 20px 20px 20px; overflow: hidden; box-sizing: border-box;\n
+        \   }\n}\n@media only screen and (min-width: 550px) {\n    .main-container-search
+        .pigeon-context-promotion.margin-left {\n        margin-left: 205px!important;\n
+        \   }\n}\n</style> <style rel=\"stylesheet\" type=\"text/css\"  media=\"(max-width:
+        990px)\" >/* DIV.home-logo {\n    margin-top: 30px;\n    margin-bottom: 30px;\n}
+        \ */\n\nINPUT.search-box {\n    font-size: 14px;\n    padding: 8px 60px 8px
+        5px;\n}\n\nDIV.home-ads {\n    margin-top: 30px;\n    margin-bottom: 90px;\n}\n\nDIV.divisa-link
+        {\n    display: block;\n}\n\nBUTTON.search-button {\n    height: 33px;\n}\n\n@media
+        (max-width: 970px) {\n\n    DIV.search-box-container-header {\n        position:
+        absolute;\n        left: 250px;\n        display: inline-block;\n    }\n\n
+        \   INPUT.search-box-header {\n        width: 245px;\n    }\n\n    DIV.banner-entre-datos
+        {\n        display: none;\n    }\n}\n\n/* DETALLE */\n\n@media (max-width:
+        990px) {\n\n    DIV.persona-data {\n        width: 96%;\n        margin-bottom:
+        24px;\n        max-width: 100%;\n        padding: 0 2% 0 2%;\n    }\n\n    DIV.persona-map
+        {\n        position: relative;\n        margin: 0 auto;\n    }\n\n    DIV.banner-entre-datos
+        {\n        display: none;\n    }\n}\n\n\n\n@media (max-width: 990px) {\n\n
+        \   DIV.seleccione_dateas {\n        left: 12px;\n    }\n\n    DIV.seleccione_dateas
+        {\n        left: 10px;\n    }\n\n    DIV.radio_btns {\n        left: 12px;\n
+        \   }\n\n    DIV.text_inputs {\n        right: 12px;\n        text-align:
+        left;\n    }\n\n    DIV.text_inputs SPAN {\n        display: none;\n    }\n\n
+        \   .pedir_informe_btn {\n        right: 12px;\n    }\n\n    DIV.select_cuit
+        {\n        width: 100%;\n        left: 0;\n    }\n\n    DIV.seleccione_gratuito
+        {\n        left: 12px;\n    }\n\n    DIV.co-select-like {\n        position:
+        absolute;\n        left: 12px;\n    }\n\n    DIV.text_inputs_gratuito {\n
+        \       right: 12px;\n    }\n\n    DIV.text_inputs_gratuito SPAN{\n        display:
+        none;\n    }\n\n    DIV.pedir-informe-btn-container {\n        bottom: 15px;\n
+        \       right: 12px;\n        text-align: right;\n    }\n    DIV.informe_gratuito
+        {\n        height: 130px;\n    }\n\n    DIV.banner-entre-datos {\n        display:
+        none;\n    }\n}\n\n@media (max-width: 860px) {\n    DIV.divisas-blue-bar DIV.light-side
+        {\n        font-size: 21px;\n        width: 50%;\n    }\n\n    DIV.divisas-blue-bar
+        DIV.dark-side {\n        width: 45%;\n    }\n\n    DIV.banner-entre-datos
+        {\n        display: none;\n    }\n}\n\n@media (max-width: 768px) {\n    DIV.ads-right-bar
+        {\n        display: none;\n    }\n\n\tDIV.banner-results-for-mid {\n\t    display:
+        block;\n\t}\n\n    DIV.left-pane {\n        width: 100%;\n        margin:
+        5px 0;\n        font-size: 14px;\n        line-height: 2.1em;        \n    }\n\n
+        \   IMG.img-logo{\n        display: none;\n    }\n\n    IMG.img-logo-mobile{\n
+        \       display: inline;\n        width: 50%;\n    }\n\n    DIV.header-popup
+        {\n        height: auto;\n        padding: 10px 0;\n    }\n\n    DIV.header-popup
+        IMG.img-logo-mobile{\n        display: inline;\n        width: 30%;\n    }\n\n
+        \   DIV.ads-bottom-bar {\n        width: 100%;\n    }\n\n    DIV.captcha-form
+        {\n        width: 100%;\n    }\n\n    DIV.captcha-text {\n        margin-top:
+        12px;\n    }\n\n    DIV.captchaBody {\n        margin-top: 12px;\n    }\n\n
+        \   DIV.home-logo IMG.img-logo-mobile{\n        display: inline;\n        width:
+        25%;\n    }\n\n    DIV.search-top-bar-container {\n        text-align: left;\n
+        \   }\n\n    DIV.results {\n        margin-right: 12px;\n    }\n\n    SPAN.linea-cuit-persona
+        {\n        padding-bottom: 4px;\n        display: inline-block;\n    }\n\n
+        \   SPAN.linea-monotributo-persona {\n        padding-bottom: 4px;\n        display:
+        inline-block;\n    }\n\n    DIV.paginator {\n        padding: 5px 0;\n    }\n\n
+        \   DIV.paginator A {\n        font-size: 16px;\n    }\n\n    DIV.paginator-next
+        {\n        right: 76px;\n    }\n\n    DIV.paginator SPAN.selected {\n        font-size:
+        16px;\n        padding: 1px 4px 0px 4px;\n    }\n\n    H1.title-no-results
+        {\n        text-align: center;\n        font-size: 1.6em;\n    }\n\n    DIV.text_inputs
+        {\n        text-align: right;\n    }\n\n    DIV.text_inputs SPAN {\n        display:
+        inline;\n    }\n\n    DIV.text_inputs_gratuito SPAN {\n        display: inline;\n
+        \   }\n\n    DIV.banner-entre-datos {\n        display: inline-block;\n        width:
+        99%;\n        height: auto;\n        margin: 20px auto 20px auto;\n        text-align:
+        center;\n        min-width: 130px;\n\n    }\n\n    DIV.persona-data {\n        margin-bottom:
+        0;\n    }\n\n    /* DIVISAS */\n\n    DIV.divisas-home {\n        overflow:
+        hidden;\n    }\n\n    DIV.divisas-content {\n        position: relative;\n
+        \       height: 50px;\n        width: 300px;\n        overflow: hidden;\n
+        \   }\n\n    DIV.divisas-mask {\n        position: absolute;\n        left:
+        0;\n        top: 0;\n        height: 50px;\n        white-space: nowrap;\n
+        \       -webkit-transition: left 1s;\n        transition: left 1s;\n\n    }\n\n
+        \   DIV.divisas-home DIV.divisa-link {\n        height: 26px;\n        margin:
+        12px 0;\n        padding: 2px 0 0 0;\n        font: 18px Arial, sans-serif;\n
+        \       display: inline-block;\n        float: none;\n        width: 300px;\n
+        \   }\n\n    DIV.divisas-home DIV.divisa-link A {\n        display: inline-block;\n
+        \   }\n\n    DIV.divisas-home DIV.divisa-link A SPAN.indicator {\n        height:
+        20px;\n        margin-left: 15px;\n        width: 15px;\n    }\n\n    DIV.divisas-home
+        DIV.divisa-link A SPAN.flag {\n        margin: 0;\n        text-align: left;\n
+        \       width: 10px;\n        height: 16px;\n        padding: 1px 0 0 0;\n
+        \   }\n\n    DIV.divisas-home DIV.divisa-link A SPAN.value {\n        /*padding-left:
+        35px;*/\n    }\n\n\n        SPAN.divisas-name-long {\n            display:
+        none;\n        }\n\n        SPAN.divisas-name-short {\n            display:
+        inline;\n        }\n\n    DIV.divisas-right-button {\n        display: block;\n
+        \       position: absolute;\n        right: 0;\n        top: 0;\n        height:
+        45px;\n        width: 40px;\n        background: #E6E8EB url('../images/flecha-derecha.png')
+        center center no-repeat;\n        background-size: 40%;\n        cursor: pointer;\n
+        \       z-index: 10;\n    }\n\n    DIV.divisas-left-button {\n        display:
+        block;\n        position: absolute;\n        top: 0;\n        left: 0;\n        height:
+        45px;\n        width: 40px;\n        background: #E6E8EB url('../images/flecha-izquierda.png')
+        center center no-repeat;\n        background-size: 40%;\n        cursor: pointer;\n
+        \       z-index: 10;\n    }\n\n    .home-stack {\n        display: flex;\n
+        \       flex-flow: wrap;\n        flex-direction: row;\n        justify-content:
+        center;\n        align-items: center;\n    }\n\n    .home-stack>.col {\n        display:
+        flex;\n        flex-flow: column;\n        justify-content: center;\n        padding:
+        10px 0;\n    }\n}\n\n@media (max-width: 740px) {\n\n    DIV.divisas-table-container
+        {\n        width: 100%;\n    }\n\n    DIV.divisas-table-container H3 {\n        width:
+        100%;\n    }\n\n    DIV#dailyHistoryDiv {\n        width: 100%;\n    }\n\n
+        \   DIV.tableHeading {\n        width: 100%;\n    }\n\n    DIV.tableHeading
+        TABLE {\n        width: 100%;\n        background: #FFF;\n    }\n\n    DIV.tableHeading
+        TABLE TR TD {\n        font-size: 14px;\n    }\n\n    DIV#dailyHistoryTable
+        {\n        width: 100%;\n    }\n\n    DIV.tableBody TABLE {\n        width:
+        100%;\n    }\n\n    DIV.tableBody TABLE TR TD {\n        font-size: 14px;\n
+        \       padding: 2px 0;\n    }\n\n    .col-hora {\n        width: 29%;\n    }\n\n
+        \   .col-indicator {\n        width: 4%;\n    }\n\n    .col-compra {\n        width:
+        33%;\n    }\n\n    .col-venta {\n        width: 35%;\n    }\n\n    .col-last
+        {\n        width: 0;\n    }\n\n    TR.grey-row {\n        background: #FFF;\n
+        \   }\n\n    DIV.banner-entre-datos {\n        display: inline-block;\n        width:
+        99%;\n        height: auto;\n        margin: 20px auto 20px auto;\n        text-align:
+        center;\n\n    }\n}\n\n@media (max-width: 600px) {\n    DIV.footer{\n        height:
+        auto;\n        text-align: center;\n    }\n\n    DIV.div-copyright {\n        position:
+        relative;\n        top: 0;\n        left: 0;\n        margin: 0 auto;\n        display:
+        inline-block;\n        width: auto;\n    }\n\n    DIV.social-footer {\n        position:
+        relative;\n        margin: 0 auto 10px auto;\n        width: 165px;\n        height:
+        30px;\n        top: 0;\n        right: 0;\n    }\n\n    DIV.div-btn-baja {\n
+        \       position: relative;\n        display: block;\n        width: 30%;\n
+        \       left: 0;\n        top: 0;\n        margin: 18px auto 0 auto;\n    }\n\n
+        \   DIV.text_inputs {\n        text-align: left;\n    }\n\n    DIV.text_inputs
+        SPAN {\n        display: none;\n    }\n}\n\n\n.partners-mobile { display:
+        inherit; }</style> <style rel=\"stylesheet\" type=\"text/css\"  media=\"(max-width:
+        550px)\" >/* HOME */\n\n/* DIV.home-logo {\n    margin-bottom: 30px;\n    margin-top:
+        30px;\n}  */\n\nDIV.home-logo IMG.img-logo-mobile {\n    width: 50%;\n}\n\nDIV.header-popup
+        IMG.img-logo-mobile{\n    display: inline;\n    width: 50%;\n}\n\nIMG.img-logo{\n
+        \   display: none;\n}\n\nIMG.img-logo-mobile{\n    display: inline;\n    width:
+        50%;\n    padding: 15px 0;\n}\n\nDIV.search-box-container-home {\n    width:
+        100%;\n}\n\nDIV.search-button-container-home {\n    position: relative;\n
+        \   margin-top: 30px;\n}\n\nINPUT.search-box-home {\n    font-size: 15px;\n
+        \   color: #757575;\n    text-align: left;\n    padding: 15px 10px 15px 10px;\n
+        \   width: 85%;\n    background-color: #fff;\n    border: solid 1px #d4d4d4;\n
+        \   margin: 0;\n    height: 16px;\n}\n\n.home-search-btn-wrap .trigger {\n
+        \   font-size: 25px;\n    padding: 10px 0px 10px 46px;\n    background: #4f4f66
+        url(\"../images/search-icon.png\") right 36px center no-repeat;\n    width:
+        200px;\n    height: 60px;\n    margin: 0;\n    border-radius: 2px;\n    color:
+        #FFFFFF;\n    text-align: left;\n    background-size: 15%;\n}\n\n.home-search-btn-wrap
+        .trigger .button-text {\n    display: inline-flex;\n    align-items: center;\n}\n\nBUTTON.search-button-home
+        {\n    font-size: 25px;\n    padding: 10px 0px 10px 46px;\n    background:
+        #4f4f66 url(\"../images/search-icon.png\") right 36px center no-repeat;\n
+        \   width: 200px;\n    height: 60px;\n    margin: 0;\n    border-radius: 2px;\n
+        \   color: #FFFFFF;\n    text-align: left;\n    background-size: 15%;\n}\n\nBUTTON.search-button-home
+        SPAN.button-text {\n    display: block;\n}\n\nDIV.home-ads {\n    margin-top:
+        30px;\n    margin-bottom: 45px;\n}\n\nDIV.footer{\n    height: auto;\n}\n\nDIV.div-copyright
+        {\n    position: relative;\n    top: 0;\n    left: 0;\n    margin: 0 auto;\n
+        \   display: inline-block;\n    width: auto;\n}\n\nDIV.social-footer {\n    position:
+        relative;\n    margin: 0 auto 10px auto;\n    height: 24px;\n    top: 0;\n
+        \   right: 0;\n}\n\n/* HEADER SECCIONES */\n\nDIV.search-top-bar-container
+        {\n    position: relative;\n    width: 100%;\n    text-align: center;\n    display:
+        inline-block;\n    height: auto;\n    margin-bottom: 10px;\n}\n\nDIV.search-top-bar-logo
+        {\n    position: relative;\n    width: 100%;\n    display: inline-block;\n
+        \   text-align: center;\n    margin-bottom: 10px;\n}\n\nDIV.section-search
+        DIV.filters-button {\n    position: absolute;\n    left: 10px;\n    top: 10px;\n
+        \   display: inline-block;\n    cursor: pointer;\n    width: 38px;\n    height:
+        23px;\n}\n\nDIV.filters-button {\n    display: block;\n    float: right;\n
+        \   margin-right: 15px;\n    /* border: 1px solid; */\n    padding: 0px 10px
+        0px 10px;\n    color: #2F80ED;\n    background: #F2F2F2;\n}\n\nDIV.search-box-container-header
+        {\n    display: inline-block;\n    width: auto;\n    position: relative;\n
+        \   left: 0;\n}\n\nINPUT.search-box-header {\n    font-size: 14px;\n    color:
+        #757575;\n    text-align: left;\n    padding: 7px 37px 7px 5px;\n    width:
+        266px;\n    background-color: #fff;\n    border: solid 1px #d4d4d4;\n    margin:
+        0;\n    height: 18px;\n    line-height: 18px;\n}\n\nDIV.search-button-container-header{\n
+        \   position: absolute;\n    top: 0px;\n    right: 0;\n}\n\n.bar-search-btn-wrap
+        .trigger {\n    background: #4f4f66 url(\"../images/search-icon.png\") center
+        center no-repeat;\n    background-size: 50%;\n    width: 34px;\n    height:
+        34px;\n    margin: 0;\n    border-radius: 2px;\n}\n\nBUTTON.search-button-header
+        {\n    background: #4f4f66 url(\"../images/search-icon.png\") center center
+        no-repeat;\n    background-size: 50%;\n    width: 34px;\n    height: 34px;\n
+        \   margin: 0;\n    border-radius: 2px;\n}\n\n/* SEARCH RESULTS */\n\nDIV.categories
+        {\n    position: absolute;\n    top: -166px;\n    left: -260px;\n    z-index:
+        20;\n    background: #525256;\n    display: block;\n    padding: 50px 0 0
+        50px;\n    width: 210px;\n    height: auto;\n    margin: 0;\n\n    -webkit-transition:
+        left 1s;\n    transition: left 1s;\n    overflow: hidden;\n}\n\nDIV.categories-mobile-show
+        {\n    left: 0;\n    top:-120px;\n}\n\nDIV.close-filter-button {\n    display:
+        block;\n    background: url(\"../images/cerrar-filtros.png\") center center
+        no-repeat;\n    position: absolute;\n    height: 30px;\n    width: 30px;\n
+        \   top: 20px;\n    right: 10px;\n    cursor: pointer;\n}\n\nDIV.categories
+        DIV.filters-title {\n    width: 100%;\n    text-align: left;\n    background-color:
+        #525256;\n    color: #C1C1C1;\n    font-size: 16px;\n    margin-bottom: 15px;\n
+        \   white-space: nowrap;\n}\n\nDIV.categories DIV.view-categories {\n    margin-bottom:
+        7px;\n}\n\nDIV.categories DIV.view-categories DIV.view-name{\n    font-size:
+        15px;\n    height: 15px;\n    color: #FFF;\n    background-color: #525256;\n
+        \   padding: 3px 0px 8px 0px;\n    text-align: left;\n    border-bottom: solid
+        #C1C1C1 1px;\n    margin-bottom: 4px;\n}\n\nDIV.categories DIV.view-categories
+        A {\n    color: #C1C1C1;\n    text-decoration: none;\n    background: none;\n
+        \   padding-left: 8px;\n    line-height: 15px;\n    font-size: 15px;\n    margin-bottom:
+        4px;\n    white-space: nowrap;\n}\n\nDIV.categories DIV.view-categories A:hover
+        {\n    text-decoration: none;\n}\n\nDIV.categories DIV.view-categories SPAN.category-count
+        {\n    font-size: 15px;\n    color: #C1C1C1;\n    text-align: left;\n    padding:
+        0px 1px;\n    line-height: 15px;\n}\n\nDIV.breadcrumb-in-filter {\n    display:
+        inline-block;\n}\nDIV.breadcrumb-in-filter A {\n    color: #C1C1C1;\n    text-decoration:
+        none;\n    background: url('../images/clear-filters.png') center right no-repeat
+        !important;\n    padding-left: 8px;\n    line-height: 15px;\n    font-size:
+        15px;\n    margin-bottom: 4px;\n    white-space: nowrap;\n    padding-right:
+        14px;\n}\n\nDIV.just-on-mobile {\n    display: block;\n}\n\nDIV.results-count
+        {\n    display: none;\n}\n\nDIV.bottom-container {\n    margin: 0px;\n}\n\nDIV.results
+        {\n    width: 100%;\n    margin: 0;\n}\n\nDIV.search-query {\n    /* width:
+        96%;\n    background: #1F414D;\n    font-size: 15px;\n    padding: 10px 1%
+        0px 3%;\n    text-transform: uppercase;\n    color: #E6E8EB;\n    font-weight:
+        bold;\n    margin: 0; */\n    padding-left: 12px;\n    /* display: none; */\n}\n\nDIV.search-query
+        SPAN {\n    display: block;\n    color: #FFFFFF;\n    text-transform: lowercase;\n
+        \   font-weight: normal;\n    padding: 5px 0px;\n}\n\nDIV.search-breadcrumbs-button
+        {\n    display: block;\n    width: 100%;\n    background: #1F7AC1;\n    text-align:
+        center;\n    cursor: pointer;\n    color: #92C7F0;\n    font-size: 15px;\n
+        \   padding: 12px 0;\n    display: none;\n}\n\nDIV.breadcrumbs-button-text
+        {\n    background: url('../images/abrir-breadcrumbs.png') center right no-repeat;\n
+        \   background-size: 15%;\n    display: inline-block;\n    padding-right:
+        50px;\n}\n\nDIV.search-breadcrumbs {\n    display: block;\n    background:
+        #1F7AC1;\n\n    padding-top: 0;\n    padding-bottom: 0;\n    height: auto;\n
+        \   max-height: 0;\n    overflow: hidden;\n\n    /*-webkit-transition: max-height
+        400ms, padding-top 500ms, padding-bottom 500ms;\n    transition: max-height
+        400ms, padding-top 500ms, padding-bottom 500ms;*/\n\n}\n\nDIV.search-breadcrumbs-mobile-show
+        {\n    height: auto;\n    padding-bottom: 5px;\n    padding-top: 20px;\n    max-height:
+        350px;\n}\n\nDIV.breadcrumb {\n    display: block;\n    float: none;\n    width:
+        100%;\n    margin: 0;\n    font-size: 15px;\n    color: #92C7F0;\n    background:
+        #1F7AC1;\n    text-align: center;\n    border: none;\n}\n\nDIV.hl-breadcrumb
+        {\n    border: none !important;\n}\n\nDIV.breadcrumb DIV.breadcrumb-inner
+        {\n    padding: 10px 0;\n    border: none;\n}\n\nDIV.breadcrumb A {\n    background:
+        url('../images/remover-breadcrumb.png') no-repeat !important;\n    background-size:
+        100% !important;\n    padding: 6px 12px 6px 12px !important;\n    border:
+        none;\n}\n\nDIV.results DIV.hit {\n    margin: 0;\n    padding: 12px 1% 9px
+        3%;\n}\n\nDIV.denominacion {\n    margin-bottom: 8px;\n}\n\nDIV.paginator
+        {\n    padding: 0;\n    height: 30px;\n    border: none;\n    display: inline-block;\n
+        \   width: 100%;\n    margin-top: 5%;\n}\n\nDIV.paginator A {\n    font-size:
+        20px;\n}\n\nDIV.paginator SPAN.special-link {\n    position: relative;\n    margin-top:
+        5px;\n}\nDIV.paginator SPAN.special-link A {\n    background: #F1F1F1;\n    display:
+        block;\n    width: 100%;\n}\n\n\nDIV.paginator DIV.paginator-next, DIV.paginator
+        DIV.paginator-prev {\n    width: 40%;\n    height: 30px;\n    margin: 0;\n
+        \   top: 0;\n    text-align: center;\n    padding-top: 5px;\n    background:
+        #F1F1F1;\n}\n\nDIV.mobile-button-fs {\n    width: 90% !important;\n}\n\nDIV.paginator
+        DIV.paginator-prev {\n    left: 5%;\n}\n\nDIV.paginator DIV.paginator-next
+        {\n    right: 5%;\n}\n\nDIV.paginator TABLE {\n    display: none;\n}\n\nDIV.ads-right-bar
+        {\n    display: none;\n}\n\n/* FOOTER */\nDIV.footer-search {\n    width:
+        100%;\n}\n\nDIV.div-co-iso {\n    position: relative;\n    width: 100%;\n
+        \   padding: 0;\n    margin-bottom: 10px;\n}\n\nIMG.logo-footer {\n    display:
+        none;\n}\n\nIMG.logo-footer-mobile {\n    display: inline;\n    /* width:
+        20%; */\n}\n\nDIV.footer-home {\n    margin-top: -25px;\n}\n\nDIV.footer-home
+        DIV.div-copyright {\n    position: relative;\n    top: 0;\n    left: 0;\n
+        \   width: auto;\n    margin: 12px auto 20px;\n    display: inline-block;\n
+        \   text-align: center;\n    padding: 0;\n}\n\nDIV.footer-search DIV.div-copyright
+        {\n    position: relative;\n    top: 0;\n    left: 0;\n    width: auto;\n
+        \   margin: 0 auto 20px auto;\n    display: inline-block;\n    text-align:
+        center;\n    padding: 0;\n}\n\nDIV.div-btn-baja {\n    position: relative;\n
+        \   display: block;\n    width: 50%;\n    left: 0;\n    top: 0;\n    margin:
+        18px auto 0 auto;\n}\n\n/* ESTILOS DE LA PAGINA DE DETALLE */\n\nH1.p_title
+        {\n    background: #FFFFFF;\n}\n\nDIV.persona-informes {\n    position: relative;\n
+        \   padding: 0;\n    width: 98%;\n    margin: 12px auto 0 auto;\n}\n\nDIV.persona-informes
+        > DIV {\n    margin: 0;\n    text-align: left;\n    width: 25%;\n    padding:
+        0;\n    border: none;\n    min-height: initial;\n}\n\nDIV.persona-informes
+        > DIV > DIV {\n    margin: 0;\n    font-size: 15px;\n    text-align: center;\n}\n\nDIV.persona-informes
+        > DIV > DIV > SPAN.informes-nombre-corto {\n    display: block;\n    width:
+        100%;\n    padding: 10px 0 10px 0;\n    /*background-image:  url('../images/abrir-informes.png');\n
+        \   background-size: 25%;\n    background-repeat: no-repeat;\n    background-position:
+        bottom 10px center;*/\n    cursor: pointer;\n}\n\nDIV.persona-informes > DIV
+        > DIV > SPAN.informes-nombre-largo {\n    display: none;\n}\n\nDIV.afip SPAN.informes-nombre-corto
+        {\n    background-color: #424242;\n}\n\nDIV.rentas SPAN.informes-nombre-corto
+        {\n    background-color: #E5880F;\n}\n\nDIV.banco-central SPAN.informes-nombre-corto
+        {\n    background-color: #1D6AC2;\n}\n\nDIV.dateas SPAN.informes-nombre-corto
+        {\n    background-color: #267F00;\n}\n\nDIV.afip DIV.titulo_box_informes {\n
+        \   color: #FFFFFF;\n}\n\nDIV.rentas DIV.titulo_box_informes {\n    color:
+        #FFFFFF;\n}\n\nDIV.banco-central DIV.titulo_box_informes {\n    color: #FFFFFF;\n}\n\nDIV.dateas
+        DIV.titulo_box_informes {\n    color: #FFFFFF;\n}\n\nUL.p_listaInformes-mobile
+        LI {\n    list-style: none;\n}\n\nUL.p_listaInformes-mobile LI A {\n    color:
+        #FFFFFF;\n    font-size: 15px;\n    text-decoration: none;\n}\n\nUL.p_listaInformes
+        {\n    display: none;\n}\n\nUL.p_listaInformes-mobile {\n    /*position: absolute;*/\n
+        \   /*top: 52px;*/\n    display: block;\n    width: 100%;\n    z-index: 10;\n
+        \   padding: 0;\n    height: auto;\n    max-height: 0;\n    overflow: hidden;\n\n
+        \   /*-webkit-transition: max-height 500ms;\n    transition: max-height 500ms;*/\n}\n\nUL.p_listaInformes-mobile
+        LI {\n    margin-top: 2%;\n    margin-left: 2%;\n}\n\nUL.p_listaInformes-mobile
+        LI:last-child {\n    margin-bottom: 2%;\n}\n\n\nUL.p_listaInformes-mobile-show
+        {\n    max-height: 300px;\n}\n\nDIV.afip, DIV.rentas, DIV.banco-central, DIV.dateas
+        {\n    width: 100%;\n}\n\nDIV.afip UL.p_listaInformes-mobile {\n    background-color:
+        #424242;\n}\n\nDIV.rentas UL.p_listaInformes-mobile {\n    background-color:
+        #E5880F;\n}\n\nDIV.banco-central UL.p_listaInformes-mobile {\n    background-color:
+        #1D6AC2;\n}\n\nDIV.dateas UL.p_listaInformes-mobile {\n    background-color:
+        #267F00;\n}\n\nUL.p_info LI {\n    font-size: 14px;\n}\n\nLI.p_cuit_title
+        {\n    color: #1f7ac1 !important;\n    text-align: center;\n    border: none;\n
+        \   margin-bottom: 10px;\n    font-size: 20px !important;\n}\n\nLI.p_cuit_title
+        SPAN {\n    font-size: 20px !important;\n}\n\nSPAN.c_black {\n    font-size:
+        14px;\n}\n\nDIV.persona-data {\n    width: 96%;\n    padding: 0 2% 0 2%;\n}\n\nDIV.banner-entre-datos
+        {\n    display: inline-block;\n    width: 99%;\n    height: auto;\n    margin:
+        20px auto 20px auto;\n    text-align: center;\n    min-width: 130px;\n\n}\n\n/*
+        INFORMES Y CONSTANCIAS */\n\nDIV.informes-constancias-head {\n    margin:
+        0 0 10px 0;\n    font-weight: normal;\n}\n\nDIV.informe_tipo DIV.titulo-informe
+        {\n    font-size: 20px;\n    width: 100%;\n    background: none;\n    padding:
+        2px 0 2px 0px;\n}\n\nDIV.informe_tipo {\n    margin: 0;\n}\n\n#error_gratuito,
+        #error_dateas{\n    position: relative;\n    top: 0 !important;\n    left:
+        0 !important;\n    width: 100%;\n    text-align: center;\n    font: bold 14px
+        Arial,sans-serif;\n    color: #c20e1a;\n    padding-bottom: 12px;\n}\n\nDIV.informe_dateas
+        {\n    padding-top: 25px;\n    height: auto;\n    text-align: center;\n}\n\nDIV.seleccione_dateas
+        {\n    position: relative;\n    left: 0;\n    top: 0 !important;\n    display:
+        block;\n    width: 100%;\n    font-size: 18px;\n    color: #49495A;\n}\n\nDIV.radio_btns
+        {\n    position: relative;\n    top: 0 !important;\n    left: 0;\n    display:
+        inline-block;\n    text-align: center;\n    margin: 20px auto;\n    font-size:
+        18px;\n}\n\nDIV.radio_btns INPUT[type=radio] {\n    height: 21px;\n}\n\nDIV.text_inputs
+        {\n    position: relative;\n    top: 0 !important;\n    left: 0;\n    width:
+        100%;\n    text-align: center;\n}\n\nDIV.text_inputs SPAN {\n    display:
+        none;\n}\n\nDIV.text_inputs INPUT {\n    width: 90%;\n    font-size: 16px;\n
+        \   padding: 10px 1px 10px 5px;\n    margin-bottom: 12px;\n}\n\n.pedir_informe_btn
+        SPAN {\n    display: block;\n    font-size: 18px;\n}\n\n.pedir_informe_btn
+        {\n    position: relative;\n    right: 0;\n    bottom: 0;\n    width: 90%;\n
+        \   background: #1f7AC1 url('../images/pedir-informes-arrow.png') no-repeat;\n
+        \   background-position: right 12px center;\n    padding: 10px 0;\n    color:
+        #FFFFFF;\n    height: auto;\n    margin-bottom: 12px;\n    margin-top: 25px;\n\tbackground-size:
+        4%;\n}\n\nDIV.informe_gratuito {\n    padding-top: 25px;\n    height: auto
+        !important;\n    display: inline-block;\n    text-align: center;\n}\n\nDIV.select_cuit
+        {\n    position: relative;\n    left: 0;\n    top: 0;\n    width: 100%;\n}\n\nDIV.seleccione_gratuito
+        {\n    position: relative;\n    left: 0;\n    top: 0 !important;\n    display:
+        block;\n    width: 100%;\n    font-size: 18px;\n    color: #49495A;\n    margin-bottom:
+        12px;\n}\n\nDIV.co-select-like {\n    float: none;\n    margin: 0 auto 12px
+        auto;\n    position: relative;\n}\n\nDIV.text_inputs_gratuito SPAN {\n    display:
+        none;\n}\n\nDIV.text_inputs_gratuito {\n    position: relative;\n    text-align:
+        center;\n    right: 0;\n}\n\nDIV.text_inputs_gratuito INPUT {\n    width:
+        90% !important;\n    font-size: 16px;\n    padding: 10px 1px 10px 5px;\n    margin-bottom:
+        12px;\n}\n\nDIV.pedir-informe-btn-container {\n    position: relative;\n    bottom:
+        0;\n    right: 0;\n    text-align: center;\n}\n\nDIV.informe_gratuito {\n
+        \   margin: 0;\n}\n\n/* FAQS */\n\nDIV.bodyBajas UL {\n    padding: 0 10px;\n}\n\n/*
+        CAPTCHA DE CONSTANCIAS */\n\nDIV.captcha-text {\n    position:relative;\n
+        \   width:90%;\n    margin: 0 auto;\n    font-size: 16px;\n}\n\nDIV.captcha-form
+        {\n    position:relative;\n    width:100%;\n}\n\nDIV.captcha-form TABLE {\n
+        \   width: 100%;\n}\n\n\nDIV.captcha-form TABLE TR TD {\n    display: block;\n
+        \   text-align: center;\n}\n\nTD.captcha-image {\n    margin-top: 20px;\n}\n\nTD.captcha-input-text
+        {\n    margin-top: 30px;\n    padding-left: 0;\n    font-size: 16px;\n    width:
+        100%;\n}\n\nTD.captcha-input-text INPUT {\n    width: 90%;\n    font-size:
+        16px;\n    padding: 10px 1px 10px 5px;\n    margin-bottom: 12px;\n    height:
+        auto;\n}\n\nTABLE.button-container-table {\n    width: 100%;\n    margin:
+        16px 0 0 0;\n}\n\nTABLE.button-container-table DIV {\n    display: inline-block;\n
+        \   width: 90%;\n}\n\nBUTTON.obtener-constancia {\n    width: 100%;\n    background:
+        #1f7AC1 url('../images/pedir-informes-arrow.png') no-repeat;\n    background-size:
+        3%;\n    background-position: right 12px center;\n    padding: 10px 0;\n    color:
+        #FFFFFF;\n    height: auto;\n    font-size: 16px;\n}\n\n#_loadingImage {\n
+        \   position: absolute;\n    top: 10px;\n    left: 10px;\n    display: none;\n}\n\nDIV.bcra-captcha-container
+        {\n    width: 100%;\n}\n\nDIV.bcra-captcha-button-container {\n    position:
+        relative;\n    width:90%;\n    margin:0 auto;\n}\n\n/* INFORMES DATEAS */\n\nDIV.captchaBody
+        {\n    width:100%;\n    margin: 0 auto;\n}\n\nDIV.info {\n    margin-top:
+        12px;\n    padding-left: 0;\n    font-size: 16px;\n    width: 90%;\n}\n\nDIV.dateas-captcha-form
+        {\n    width: 100%;\n}\n\nDIV.dateas-captcha-form-column {\n    display: block;\n
+        \   font: 16px Arial, sans-serif;\n    width: 100%;\n    text-align: center;\n
+        \   font-weight: bold;\n}\n\nDIV.dateas-captcha-form-column:first-child {\n
+        \   margin-bottom: 30px;\n}\n\nDIV.dateas-captcha-form-column DIV {\n    height:
+        auto;\n}\n\nDIV.dateas-captcha-form-column DIV.wide {\n    width: 100%;\n
+        \   height: auto;\n}\n\nDIV.dateas-captcha-form INPUT {\n    width: 90% !important;\n
+        \   font-size: 16px;\n    padding: 10px 1px 10px 5px;\n    margin-bottom:
+        12px;\n    height: auto !important;\n    margin-top: 12px;\n}\n\nDIV.dateas-captcha-form
+        BUTTON {\n    position: relative;\n    top: 0;\n    right: 0;\n    width:
+        92%;\n}\n\n/* DIVISAS */\n\nDIV.divisas-heading-bar {\n    padding: 0;\n    height:
+        56px;\n    margin: 0;\n}\n\nDIV.divisas-heading-bar H1 {\n    display: none;\n}\n\nDIV.divisas-heading-bar
+        DIV.more-divisas {\n    position: relative;\n    width: 100%;\n    left: 0;\n
+        \   right: 0;\n    top: 0;\n    padding:0;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas
+        A  {\n    display: block;\n    width: 20%;\n    float: left;\n    padding:
+        20px 0 5px 0;\n    margin: 0;\n    height: 31px;\n    text-align: center;\n
+        \   font-size: 12px;\n}\n\nDIV.divisas-heading-bar DIV.more-divisas A.divisa-link-selected
+        \ {\n    background-color: #1f7ac1;\n    border-radius: 0;\n    color: #FFF;\n}\n\nDIV.divisas-blue-bar
+        DIV.dark-side {\n    display: none;\n}\n\nDIV.divisas-blue-bar DIV.dark-side-alert
+        {\n    display: none;\n}\n\nDIV.divisas-blue-bar DIV.light-side {\n    width:
+        100%;\n    font-size: 21px;\n    text-align: center;\n}\n\nDIV.light-side
+        SPAN.separator {\n    display: none;\n}\n\nDIV.light-side > SPAN:first-child
+        {\n    margin-right: 1%;\n}\n\nDIV.divisas-data-container {\n    margin-top:
+        12px;\n    border: none;\n    padding-top: 0;\n}\n\n.main-container-search
+        .pigeon-context-promotion {\n    margin-left: inherit !important;\n}</style>
+        <!--[if IE 7]><style rel=\"stylesheet\" type=\"text/css\"  media=\"screen\"
+        >IMG.logo-footer {\n\n}\n\nIMG.logo-footer {\n    width: 15%;\n}\n\n.home-search-btn-wrap
+        .trigger,\n.bar-search-btn-wrap .trigger {\n    background: #4f4f66;\n}\n\nBUTTON.search-button-home,
+        BUTTON.search-button-header {\n    background: #4f4f66;\n}\n\nDIV.search-button-container-home,
+        DIV.search-button-container-header {\n    top: 1px;\n}\n\nIFRAME {\n    frameborder:
+        0;\n    scroll: none;\n    scrollbars: no;\n}</style><![endif]-->   </head>
+        <body class=\"\" id=\"b\">     \r\n    <!-- Google Tag Manager (noscript)
+        -->\r\n    <noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-KQN67J6R\"\r\n
+        \                     height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\r\n
+        \   <!-- End Google Tag Manager (noscript) -->\r\n    \r\n <div class=\"main-container
+        main-container-search\">   <script> \r\n    window.dispatchEvent(new CustomEvent('loadAds',
+        {\r\n        detail: { allowed: false }\r\n    }));\r\n     </script>  \r\n\r\n
+        \   <style>\r\n        #adBlockModalOverlay * {\r\n            margin: 0;\r\n
+        \           padding: 0;\r\n            box-sizing: border-box;\r\n        }\r\n\r\n
+        \       /*body {*/\r\n        /*    font-family: -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Roboto, sans-serif;*/\r\n        /*    background: #f5f6fa;*/\r\n
+        \       /*    min-height: 100vh;*/\r\n        /*}*/\r\n\r\n        /* Modal
+        overlay */\r\n        #adBlockModalOverlay.modal-overlay {\r\n            position:
+        fixed;\r\n            top: 0;\r\n            left: 0;\r\n            width:
+        100%;\r\n            height: 100%;\r\n            background-color: rgba(0,
+        0, 0, 0.75);\r\n            display: flex;\r\n            justify-content:
+        center;\r\n            align-items: center;\r\n            z-index: 1000000000;\r\n
+        \           animation: fadeIn 0.4s ease-out;\r\n        }\r\n\r\n        @keyframes
+        fadeIn {\r\n            from { opacity: 0; }\r\n            to { opacity:
+        1; }\r\n        }\r\n\r\n        @keyframes slideIn {\r\n            from
+        {\r\n                transform: translate(-50%, -60%) scale(0.8);\r\n                opacity:
+        0;\r\n            }\r\n            to {\r\n                transform: translate(-50%,
+        -50%) scale(1);\r\n                opacity: 1;\r\n            }\r\n        }\r\n\r\n
+        \       @keyframes pulse {\r\n            0% { transform: scale(1); }\r\n
+        \           50% { transform: scale(1.1); }\r\n            100% { transform:
+        scale(1); }\r\n        }\r\n\r\n        @keyframes shake {\r\n            0%,
+        100% { transform: translateX(0); }\r\n            25% { transform: translateX(-5px);
+        }\r\n            75% { transform: translateX(5px); }\r\n        }\r\n\r\n
+        \       /* Modal content */\r\n        #adBlockModalOverlay .modal {\r\n            position:
+        fixed;\r\n            top: 50%;\r\n            left: 50%;\r\n            transform:
+        translate(-50%, -50%);\r\n            background: white;\r\n            border-radius:
+        16px;\r\n            padding: 0;\r\n            max-width: 520px;\r\n            width:
+        90%;\r\n            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);\r\n            animation:
+        slideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);\r\n            overflow:
+        hidden;\r\n            border: 3px solid #227e33;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .modal-header {\r\n            background: linear-gradient(135deg, #227e33
+        0%, #2eab3a 100%);\r\n            color: white;\r\n            padding: 30px
+        30px 25px;\r\n            text-align: center;\r\n            position: relative;\r\n
+        \       }\r\n\r\n        #adBlockModalOverlay .modal-icon {\r\n            width:
+        70px;\r\n            height: 70px;\r\n            background: rgba(255, 255,
+        255, 0.2);\r\n            border-radius: 50%;\r\n            margin: 0 auto
+        18px;\r\n            display: flex;\r\n            align-items: center;\r\n
+        \           justify-content: center;\r\n            font-size: 34px;\r\n            animation:
+        pulse 2s infinite;\r\n        }\r\n\r\n        #adBlockModalOverlay .modal-title
+        {\r\n            font-size: 28px;\r\n            font-weight: 800;\r\n            margin-bottom:
+        10px;\r\n            line-height: 1.2;\r\n            text-shadow: 0 2px 4px
+        rgba(0,0,0,0.2);\r\n        }\r\n\r\n        #adBlockModalOverlay .modal-subtitle
+        {\r\n            font-size: 16px;\r\n            opacity: 0.95;\r\n            font-weight:
+        500;\r\n        }\r\n\r\n        #adBlockModalOverlay .modal-body {\r\n            padding:
+        35px 30px;\r\n            text-align: center;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .modal-body p {\r\n            font-size: 17px;\r\n            line-height:
+        1.6;\r\n            color: #444;\r\n            margin-bottom: 22px;\r\n        }\r\n\r\n
+        \       #adBlockModalOverlay .warning-box {\r\n            background: linear-gradient(135deg,
+        #fff3cd 0%, #ffeaa7 100%);\r\n            border: 2px solid #f39c12;\r\n            padding:
+        20px;\r\n            border-radius: 12px;\r\n            margin: 25px 0;\r\n
+        \           animation: shake 3s infinite;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .warning-box h4 {\r\n            color: #d35400;\r\n            font-size:
+        18px;\r\n            margin-bottom: 12px;\r\n            font-weight: 700;\r\n
+        \       }\r\n\r\n        #adBlockModalOverlay .warning-box p {\r\n            color:
+        #8b4513;\r\n            font-size: 15px;\r\n            margin: 0;\r\n            font-weight:
+        600;\r\n        }\r\n\r\n        #adBlockModalOverlay .features-list {\r\n
+        \           text-align: left;\r\n            margin: 25px 0;\r\n            background:
+        #f8f9fa;\r\n            padding: 25px;\r\n            border-radius: 12px;\r\n
+        \           border-left: 5px solid #2c5aa0;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .features-list h4 {\r\n            color: #2c5aa0;\r\n            font-size:
+        18px;\r\n            margin-bottom: 15px;\r\n            font-weight: 700;\r\n
+        \       }\r\n\r\n        #adBlockModalOverlay .features-list ul {\r\n            list-style:
+        none;\r\n            padding: 0;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .features-list li {\r\n            padding: 8px 0;\r\n            font-size:
+        15px;\r\n            color: #555;\r\n            position: relative;\r\n            padding-left:
+        25px;\r\n            font-weight: 500;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .features-list li:before {\r\n            content: \"\u2713\";\r\n            position:
+        absolute;\r\n            left: 0;\r\n            color: #27ae60;\r\n            font-weight:
+        bold;\r\n            font-size: 18px;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .modal-buttons {\r\n            display: flex;\r\n            gap: 15px;\r\n
+        \           margin-top: 30px;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .btn {\r\n            flex: 1;\r\n            padding: 16px 24px;\r\n            border:
+        none;\r\n            border-radius: 10px;\r\n            font-size: 17px;\r\n
+        \           font-weight: 700;\r\n            cursor: pointer;\r\n            transition:
+        all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);\r\n            text-decoration:
+        none;\r\n            display: inline-block;\r\n            text-align: center;\r\n
+        \       }\r\n\r\n        #adBlockModalOverlay .btn-primary {\r\n            background:
+        linear-gradient(135deg, #2c5aa0 0%, #1e3a5f 100%);\r\n            color: white;\r\n
+        \           box-shadow: 0 6px 20px rgba(44, 90, 160, 0.4);\r\n        }\r\n\r\n
+        \       #adBlockModalOverlay .btn-primary:hover {\r\n            transform:
+        translateY(-3px);\r\n            box-shadow: 0 8px 25px rgba(44, 90, 160,
+        0.5);\r\n        }\r\n\r\n        #adBlockModalOverlay .btn-secondary {\r\n
+        \           background: transparent;\r\n            color: #666;\r\n            border:
+        2px solid #ddd;\r\n        }\r\n\r\n        #adBlockModalOverlay .btn-secondary:hover
+        {\r\n            background: #f5f5f5;\r\n            border-color: #bbb;\r\n
+        \           transform: translateY(-1px);\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .btn:disabled {\r\n            opacity: 0.4;\r\n            cursor: not-allowed;\r\n
+        \           transform: none !important;\r\n        }\r\n\r\n        #adBlockModalOverlay
+        .modal-footer {\r\n            padding: 20px 30px;\r\n            background:
+        linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);\r\n            border-top:
+        1px solid #dee2e6;\r\n            text-align: center;\r\n        }\r\n\r\n
+        \       #adBlockModalOverlay .modal-footer p {\r\n            font-size: 14px;\r\n
+        \           color: #666;\r\n            margin: 0;\r\n            font-weight:
+        600;\r\n        }\r\n\r\n        #adBlockModalOverlay .close-btn {\r\n            position:
+        absolute;\r\n            top: 15px;\r\n            right: 20px;\r\n            background:
+        rgba(255, 255, 255, 0.25);\r\n            border: none;\r\n            color:
+        white;\r\n            font-size: 28px;\r\n            width: 40px;\r\n            height:
+        40px;\r\n            border-radius: 50%;\r\n            cursor: pointer;\r\n
+        \           display: flex;\r\n            align-items: center;\r\n            justify-content:
+        center;\r\n            transition: all 0.3s ease;\r\n            font-weight:
+        bold;\r\n        }\r\n\r\n        #adBlockModalOverlay .close-btn:hover {\r\n
+        \           background: rgba(255, 255, 255, 0.35);\r\n            transform:
+        rotate(90deg);\r\n        }\r\n\r\n        #adBlockModalOverlay .close-btn:disabled
+        {\r\n            opacity: 0.3;\r\n            cursor: not-allowed;\r\n            transform:
+        none !important;\r\n        }\r\n\r\n        #adBlockModalOverlay .countdown
+        {\r\n            display: inline-block;\r\n            background: rgba(255,
+        255, 255, 0.25);\r\n            padding: 6px 12px;\r\n            border-radius:
+        15px;\r\n            font-size: 14px;\r\n            font-weight: 700;\r\n
+        \           margin-left: 8px;\r\n            animation: pulse 1s infinite;\r\n
+        \       }\r\n\r\n        @media (max-width: 600px) {\r\n            #adBlockModalOverlay
+        .modal {\r\n                width: 95%;\r\n                margin: 10px;\r\n
+        \           }\r\n\r\n            #adBlockModalOverlay .modal-buttons {\r\n
+        \               flex-direction: column;\r\n            }\r\n\r\n            #adBlockModalOverlay
+        .modal-header {\r\n                padding: 25px 20px;\r\n            }\r\n\r\n
+        \           #adBlockModalOverlay .modal-body {\r\n                padding:
+        25px 20px;\r\n            }\r\n\r\n            #adBlockModalOverlay .modal-title
+        {\r\n                font-size: 24px;\r\n            }\r\n        }\r\n    </style>\r\n
+        \   <script>\r\n        (() => {\r\n            const baitUrls = [\r\n                //
+        \u2705 Google AdSense / Ad Manager\r\n                'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',\r\n
+        \               'https://pagead2.googlesyndication.com/pagead/imgad?id=CICAgKDlzOuhLxABGAEyCJwj4E6v',\r\n
+        \               'https://tpc.googlesyndication.com/sodar/sodar2.js',\r\n                'https://securepubads.g.doubleclick.net/tag/js/gpt.js',\r\n
+        \               'https://googleads.g.doubleclick.net/pagead/ads',\r\n\r\n
+        \               // \u2705 Amazon Ads\r\n                'https://aax.amazon-adsystem.com/e/dtb/bid',\r\n
+        \               'https://c.amazon-adsystem.com/bao-csm/aps-comm/aps.js',\r\n\r\n
+        \               // \u2705 Criteo\r\n                'https://static.criteo.net/js/ld/ld.js',\r\n
+        \               'https://sslwidget.criteo.com/event?a=...',\r\n\r\n                //
+        \u2705 Taboola\r\n                'https://cdn.taboola.com/libtrc/unpkg/dist/libtrc.js',\r\n\r\n
+        \               // \u2705 Outbrain\r\n                'https://widgets.outbrain.com/outbrain.js',\r\n\r\n
+        \               // \u2705 AppNexus\r\n                'https://acdn.adnxs.com/ast/ast.js',\r\n\r\n
+        \               // // \u2705 Index Exchange\r\n                // 'https://js-sec.indexww.com/ht/p/123456.js',\r\n\r\n
+        \               // // \u2705 OpenX\r\n                // 'https://servedbyopenx.com/partner/123456.js',\r\n\r\n
+        \               // // \u2705 RevContent\r\n                // 'https://labs-cdn.revcontent.com/build/rc-sdk.min.js',\r\n\r\n
+        \               // \u2705 Media.net\r\n                'https://contextual.media.net/dmedianet.js?cid=8CU123456',\r\n\r\n
+        \               // \u2705 Facebook Ads / Pixel\r\n                'https://connect.facebook.net/en_US/fbevents.js',\r\n
+        \               'https://www.facebook.com/tr/',\r\n\r\n                //
+        // \u2705 Custom bait (self-hosted fake ads)\r\n                // 'https://yourdomain.com/ad/banner1.jpg',\r\n
+        \               // 'https://yourdomain.com/ads/ad-script.js',\r\n            ];\r\n
+        \           Promise.all(baitUrls.map(url =>\r\n                fetch(url,
+        { method: 'HEAD', mode: 'no-cors' })\r\n                    .then(() => ({
+        url, blocked: false }))\r\n                    .catch(() => ({ url, blocked:
+        true }))\r\n            )).then(results => {\r\n                const blockedCount
+        = results.filter(r => r.blocked).length;\r\n                console.log(\"AdBlock
+        status:\", blockedCount >= 3 ? \"Likely enabled\" : \"Probably disabled\");\r\n\r\n
+        \               if (blockedCount < 3) {\r\n                    return;\r\n
+        \               }\r\n\r\n                document.getElementById('adBlockModalOverlay').style.display
+        = '';\r\n                document.getElementById('adBlockModalOverlay').style.animation
+        = 'fadeIn 0.3s ease-out';\r\n\r\n                // $('#adBlockModalOverlay
+        .close-btn').click(function() {\r\n                //     document.getElementById('adBlockModalOverlay').style.animation
+        = 'fadeIn 0.3s ease-out reverse';\r\n                //     setTimeout(()
+        => {\r\n                //         document.getElementById('adBlockModalOverlay').style.display
+        = 'none';\r\n                //         document.body.style.overflow = 'auto';\r\n
+        \               //     }, 300);\r\n                // })\r\n            });\r\n
+        \       })()\r\n    </script>\r\n <div class=\"modal-overlay\" id=\"adBlockModalOverlay\"
+        style=\"display: none;\"> <div class=\"modal\"> <div class=\"modal-header\">
+        \ <div class=\"modal-icon\">\U0001F6AB</div> <h2 class=\"modal-title\">\xA1Bloqueador
+        de Anuncios Detectado!</h2> <p class=\"modal-subtitle\">Desactiva tu bloqueador
+        para continuar  </p> </div> <div class=\"modal-body\"> <p>Hemos detectado
+        que est\xE1s usando un bloqueador de anuncios. Nuestro sitio web depende de
+        los ingresos publicitarios para mantener este servicio gratuito.</p> <div
+        class=\"warning-box\"> <h4>\u26A0\uFE0F Acceso Restringido</h4> <p>Sin desactivar
+        el bloqueador, no podr\xE1s acceder a las consultas de CUIT/CUIL</p> </div>
+        <div class=\"features-list\"> <h4>\xBFPor qu\xE9 desactivar tu bloqueador?</h4>
+        <ul> <li>Mantener el servicio gratuito de consultas</li> <li>Apoyar el mantenimiento
+        del servidor</li> <li>Acceder a todas las funcionalidades</li> <li>Solo anuncios
+        relevantes y seguros</li> </ul> </div>          </div>    </div> </div>  <script
+        type=\"text/javascript\" src=\"js-250513064051-c/searcher.js\"></script>\n\n<script>\nfunction
+        removeBeginWildcards(){\n\t\n\tvar re = /^([?*]*)(.*)$/g;\n\t\n\tvar searchBox
+        = document.getElementById(\"searchBox\");\n\t\n\tvar value = searchBox.value;\n\t\n\tvalue
+        = value.replace(\"^\",\"\");\n\tvalue = value.replace(re,\"$2\");\n\t\n\tsearchBox.value
+        = value;\n\t\n\treturn true;\n\t\n}\n\nfunction isMobile() {\n\treturn /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera
+        Mini/i.test(navigator.userAgent);\n}\n</script>\n\n<header>\n<div class=\"search-top-bar\">\n
+        \   <div class=\"search-top-bar-container\">\n        <div class=\"search-top-bar-logo
+        section-search\">\n\n            <a href=\"//www.cuitonline.com/\" title=\"Cuit
+        Online, la manera m\xE1s simple de encontrar el cuit que busc\xE1s\" class=\"link-logo\">\n
+        \               <img class=\"img-logo\" src=\"images/logo-header.png\" alt=\"Cuit
+        Online\" />\n                <img width=\"200\" height=\"auto\" class=\"img-logo-mobile\"
+        src=\"images/logo-header-mobile-1-2x.png\" alt=\"Cuit Online\" />\n            </a>\n
+        \       </div>\n\n        <div>\n            <div class=\"search-box-container-header\">\n
+        \               <form id=\"search\">\n                    <input id=\"searchBox\"
+        class=\"search-box-header\" type=\"text\" name=\"q\" value=\"gaitan martin
+        emilio\" placeholder=\"Ingrese nombre, raz\xF3n social, DNI, CUIT o CUIL\"
+        autocomplete=\"off\" />\n                    <div class=\"search-button-container-header
+        bar-search-btn-wrap\">\n                        <a href=\"/search\" class=\"trigger\">\n
+        \                           <span class=\"button-text\">Buscar</span>\n                        </a>\n
+        \                   </div>\n                </form>\n            </div>\n
+        \           <div class=\"cta-container\">\n                <a class=\"animated-cta\"
+        href=\"/partner-with-us\" title=\"\xA1Convi\xE9rtase en Partner!\">\r\n    <span
+        class=\"emoji\">\U0001F91D</span>\r\n    <span class=\"text\">\xA1Convi\xE9rtase
+        en Partner!</span>\r\n    <span class=\"arrow\">\u2192</span>\r\n</a>            </div>\n
+        \           <nav class=\"pigeon-widget-status\"></nav>\n        </div>\n        <div
+        class=\"ads-top-bar\">\n            <div class=\"adbymjp\">\n                  <div
+        id=\"div-gpt-top\">                </div>                       </div>\n        </div>\n
+        \   </div>\n    <!-- div class=\"divisas-top-bar\">\n            </div -->\n</div>\n</header>\n\n<script
+        type=\"text/javascript\">\n\tif (!isMobile()) {\n        document.getElementById(\"searchBox\").focus();\n\n
+        \   }\n</script>\n <section>   <div id=\"div-gpt-bottom-container-top\">                </div>
+        \           <div class=\"bottom-container\" >  <div class=\"left-pane\"> <div
+        id=\"filtersMenu\" class=\"categories\"> <div class=\"results-count\"> 1 persona
+        encontrada </div> <div id=\"closeFilterButton\" class=\"close-filter-button\"></div>
+        <div class=\"filters-title\"> FILTRAR RESULTADOS </div>    <br/> <div class=\"view-categories\">
+        <div class=\"view-name\">No hay filtros disponibles</div> </div>  <br/> <br/>
+        \   <div style=\"margin-bottom: 10px;\">   <div id=\"div-gpt-sidebar-left\">
+        \               </div>            </div>   </div>  <div class=\"results\"
+        id=\"searchResults\">    <div class=\"paywalled-content \"> <div class=\"breadcrumbs\">
+        <div class=\"search-query\">Usted busc&oacute;:&nbsp; <h1 style=\"display:
+        contents;color: #9494A3;font-weight: 100;font-size:12px\">gaitan martin emilio</h1>
+        <div id=\"filtersButton\" class=\"filters-button\" > Filtrar </div> </div>
+        \n    \t\t\t\t\t\t        \t\t\t\t\t\t\t        \t\t\t\t\t\t\t        \t\t\t\t\t\t\t
+        \       \t\t\t\t\t\t\t        \t\t\t\t\t\t\t        \t     <div id=\"openBreadcrumbsButton\"
+        class=\"search-breadcrumbs-button\"><div class=\"breadcrumbs-button-text\">MOSTRAR
+        FILTROS</div></div>  <div id=\"breadcrumbsContainer\" class=\"search-breadcrumbs\">
+        \                                                                                                <div
+        class=\"breadcrumb\">                    <div class=\"breadcrumb-inner\" onmouseover=\"javascript:$(this).addClass('hl-breadcrumb');\"
+        onmouseout=\"javascript:$(this).removeClass('hl-breadcrumb');\">Persona Fisica&nbsp;&nbsp;<a
+        href=\"search.php?q=gaitan+martin+emilio&amp;pn=1&amp;\">&nbsp;</a></div>
+        \               </div>   <div style=\"clear: both;\"></div> </div> </div>
+        \         <div class=\"hit\" onmouseover=\"javascript:this.style.backgroundColor='#F1F1F1';\"
+        onmouseout=\"javascript:this.style.backgroundColor='#FFF';\"> <div class=\"denominacion\">
+        <a href=\"detalle/20292247851/gaitan-martin-emilio.html\" title=\"Ver detalles
+        de GAITAN MARTIN EMILIO\" class=\"denominacion\"> <h2 class=\"denominacion\"
+        style=\"margin-bottom:10px; font-size:16px; line-height:20px;\">GAITAN MARTIN
+        EMILIO</h2> </a> </div> <div class=\"doc-facets\" style=\"font-size:14px;
+        magin: 5px 0; line-height:18px;\"> <span class=\"linea-cuit-persona\"> <span
+        class=\"bullet\">&#8226;</span>&nbsp;CUIT:&nbsp;<span class=\"cuit\">20-29224785-1</span>&nbsp;&nbsp;<span
+        style=\"font-size: 12px; color: #1f7ac1; font-weight: bold;\">&raquo;</span>&nbsp;&nbsp;<a
+        href=\"//www.cuitonline.com/constancia/inscripcion/20292247851\" rel=\"nofollow\"
+        class=\"constancia-inscripcion\" title=\"Constancia de Inscripci\xF3n de Gaitan
+        Martin Emilio\" target=\"_blank\">Constancia de Inscripci\xF3n</a> </span>
+        <br/>  <span class=\"linea-monotributo-persona\"> <span class=\"bullet\">&#8226;</span>&nbsp;Monotributista&nbsp;CATEGOR?A
+        D&nbsp;&nbsp;<span style=\"color: #79badf; font-weight: bold;\">&raquo;</span>&nbsp;&nbsp;<a
+        href=\"//www.cuitonline.com/constancia/monotributo/20292247851\" target=\"_blank\"
+        rel=\"nofollow\" class=\"constancia-inscripcion\" title=\"Ver Constancia de
+        Inscripci\xF3n de Gaitan Martin Emilio\">Constancia Monotributo</a> </span>
+        <br/>  <span class=\"bullet\">&#8226;</span>&nbsp;Persona&nbsp;F\xEDsica&nbsp;(<i>masculino</i>)<br/>
+        \      </div> <div style=\"clear:both;\"></div> </div>                      <div
+        class=\"paginator\"> <table  style=\"margin: 0 auto;\" cellpadding=\"0\" cellspacing=\"0\"
+        border=\"0\"> <tbody> <tr> <td valign=\"top\">    </td>    <td valign=\"top\"><span
+        class=\"selected\">1</span></td>   <td valign=\"top\">  </td>  </tr> </tbody>
+        </table>  </div>  </div>    <div id=\"div-gpt-search-mid\">                </div>
+        \           <div class=\"ads-blur-bar\"> <div class=\"adbymjp\">   <div id=\"div-gpt-search-blur\">
+        \               </div>            </div> </div> </div>  </div> <div class=\"ads-right-bar\">
+        <br/>  <aside class=\"partner-sidebar\" id=\"partners\"> <div class=\"partner-showcase\">
+        <div class=\"showcase-header\"> <h3>Servicios Recomendados</h3> <span class=\"verified-badge\">Verificados</span>
+        </div>   <div class=\"partner-card\"> <a rel=\"sponsored\" target=\"_blank\"
+        href=\"https://www.engineersinmarketing.com\"></a> <div class=\"partner-header\">
+        <div class=\"partner-logo\"> <img src=\"/partner-logo/40x40/aHR0cHM6Ly9hc3NldHMuY2RuLmZpbGVzYWZlLnNwYWNlL1VsTUdqck1jSU14TVhvMnpXNlVFL21lZGlhLzYzYzgyMDdlOWEyMWQ3NTI1NGQ1NDI2My5wbmc%3D\"
+        alt=\"Engineers in Marketing\" width=\"40\" height=\"40\"> </div> <div class=\"partner-info\">
+        <h4>Engineers in Marketing <br /> <a rel=\"sponsored\" class=\"partner-contact\"
+        target=\"_blank\" href=\"https://www.engineersinmarketing.com\">Contactar</a></h4>
+        <p>Socio oficial de Google, ayudando a profesionales a hacer crecer su negocio
+        con Google Ads y SEO.</p> </div> </div> <div class=\"partner-services\">  <span
+        class=\"service-tag\">Google Ads</span>  <span class=\"service-tag\">Expertos
+        SEO</span>  <span class=\"service-tag\">Socio Oficial de Google</span>  </div>
+        </div>  <div class=\"partner-card\"> <a rel=\"sponsored\" target=\"_blank\"
+        href=\"https://one.exnessonelink.com/intl/es/a/cuit97\"></a> <div class=\"partner-header\">
+        <div class=\"partner-logo\"> <img src=\"/partner-logo/40x40/aHR0cHM6Ly9kMzN2dzNpdTVoczB6aS5jbG91ZGZyb250Lm5ldC9tZWRpYS9leG5lc3NfZXB3X29nX2ltYWdlX2UxOWM0MDRiZTEucG5n\"
+        alt=\"Exness\" width=\"40\" height=\"40\"> </div> <div class=\"partner-info\">
+        <h4>Exness <br /> <a rel=\"sponsored\" class=\"partner-contact\" target=\"_blank\"
+        href=\"https://one.exnessonelink.com/intl/es/a/cuit97\">Reg\xEDstrate</a></h4>
+        <p>Mejora tu forma de hacer trading</p> </div> </div> <div class=\"partner-services\">
+        \ <span class=\"service-tag\">Trading Online</span>  <span class=\"service-tag\">Broker
+        L\xEDder</span>  <span class=\"service-tag\">En Espa\xF1ol</span>  </div>
+        </div>  <div class=\"partner-card\"> <a rel=\"sponsored\" target=\"_blank\"
+        href=\"https://go.expressvpn.com/c/6732466/1509308/16063\"></a> <div class=\"partner-header\">
+        <div class=\"partner-logo\"> <img src=\"/partner-logo/40x40/aHR0cHM6Ly93d3cuZXhwcmVzc3Zwbi5jb20vd3Atd3MvdGhlbWVzL2V4cHJlc3N2cG4vYXNzZXRzL2ltYWdlcy9mYXZpY29uL3RvdWNoLWljb24taXBhZC1yZXRpbmEucG5nP3Y9MTM3MDU0\"
+        alt=\"ExpressVPN\" width=\"40\" height=\"40\"> </div> <div class=\"partner-info\">
+        <h4>ExpressVPN <br /> <a rel=\"sponsored\" class=\"partner-contact\" target=\"_blank\"
+        href=\"https://go.expressvpn.com/c/6732466/1509308/16063\">Obtener Oferta</a></h4>
+        <p>Navega seguro, evita rastreos y accede a contenido de todo el mundo</p>
+        </div> </div> <div class=\"partner-services\">  <span class=\"service-tag\">VPN
+        R\xE1pida</span>  <span class=\"service-tag\">Navega An\xF3nimo</span>  <span
+        class=\"service-tag\">Sin L\xEDmites</span>  </div> </div>   <div class=\"cta-container\">
+        <a class=\"animated-cta\" href=\"/partner-with-us\" title=\"\xA1Convi\xE9rtase
+        en Partner!\">\r\n    <span class=\"emoji\">\U0001F91D</span>\r\n    <span
+        class=\"text\">\xA1Convi\xE9rtase en Partner!</span>\r\n    <span class=\"arrow\">\u2192</span>\r\n</a>
+        </div> </div> </aside>  <div class=\"adbymjp\">   <div id=\"div-gpt-sidebar-1\">
+        \               </div>            </div> <br/> <br/> </div> </div> \t\n\t\t<script>\n\t\t\tfunction
+        downloadJSAtOnload() {\n\t\t\t\t// var element = document.createElement(\"script\");\n\t\t\t\t//
+        element.src = \"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\";\n\t\t\t\t//
+        document.body.appendChild(element);\n\t\t\t}\n\t\t\tif (window.addEventListener)\n\t\t\twindow.addEventListener(\"load\",
+        downloadJSAtOnload, false);\n\t\t\telse if (window.attachEvent)\n\t\t\twindow.attachEvent(\"onload\",
+        downloadJSAtOnload);\n\t\t\telse window.onload = downloadJSAtOnload;\n\t\t</script>\n\t
+        </section>  <div class=\"push\"></div> </div> <!-- MAIN CONTAINER --> <div
+        class=\"partners-mobile\">  <aside class=\"partner-sidebar\" id=\"partners\">
+        <div class=\"partner-showcase\"> <div class=\"showcase-header\"> <h3>Servicios
+        Recomendados</h3> <span class=\"verified-badge\">Verificados</span> </div>
+        \  <div class=\"partner-card\"> <a rel=\"sponsored\" target=\"_blank\" href=\"https://www.engineersinmarketing.com\"></a>
+        <div class=\"partner-header\"> <div class=\"partner-logo\"> <img src=\"/partner-logo/40x40/aHR0cHM6Ly9hc3NldHMuY2RuLmZpbGVzYWZlLnNwYWNlL1VsTUdqck1jSU14TVhvMnpXNlVFL21lZGlhLzYzYzgyMDdlOWEyMWQ3NTI1NGQ1NDI2My5wbmc%3D\"
+        alt=\"Engineers in Marketing\" width=\"40\" height=\"40\"> </div> <div class=\"partner-info\">
+        <h4>Engineers in Marketing <br /> <a rel=\"sponsored\" class=\"partner-contact\"
+        target=\"_blank\" href=\"https://www.engineersinmarketing.com\">Contactar</a></h4>
+        <p>Socio oficial de Google, ayudando a profesionales a hacer crecer su negocio
+        con Google Ads y SEO.</p> </div> </div> <div class=\"partner-services\">  <span
+        class=\"service-tag\">Google Ads</span>  <span class=\"service-tag\">Expertos
+        SEO</span>  <span class=\"service-tag\">Socio Oficial de Google</span>  </div>
+        </div>  <div class=\"partner-card\"> <a rel=\"sponsored\" target=\"_blank\"
+        href=\"https://one.exnessonelink.com/intl/es/a/cuit97\"></a> <div class=\"partner-header\">
+        <div class=\"partner-logo\"> <img src=\"/partner-logo/40x40/aHR0cHM6Ly9kMzN2dzNpdTVoczB6aS5jbG91ZGZyb250Lm5ldC9tZWRpYS9leG5lc3NfZXB3X29nX2ltYWdlX2UxOWM0MDRiZTEucG5n\"
+        alt=\"Exness\" width=\"40\" height=\"40\"> </div> <div class=\"partner-info\">
+        <h4>Exness <br /> <a rel=\"sponsored\" class=\"partner-contact\" target=\"_blank\"
+        href=\"https://one.exnessonelink.com/intl/es/a/cuit97\">Reg\xEDstrate</a></h4>
+        <p>Mejora tu forma de hacer trading</p> </div> </div> <div class=\"partner-services\">
+        \ <span class=\"service-tag\">Trading Online</span>  <span class=\"service-tag\">Broker
+        L\xEDder</span>  <span class=\"service-tag\">En Espa\xF1ol</span>  </div>
+        </div>  <div class=\"partner-card\"> <a rel=\"sponsored\" target=\"_blank\"
+        href=\"https://go.expressvpn.com/c/6732466/1509308/16063\"></a> <div class=\"partner-header\">
+        <div class=\"partner-logo\"> <img src=\"/partner-logo/40x40/aHR0cHM6Ly93d3cuZXhwcmVzc3Zwbi5jb20vd3Atd3MvdGhlbWVzL2V4cHJlc3N2cG4vYXNzZXRzL2ltYWdlcy9mYXZpY29uL3RvdWNoLWljb24taXBhZC1yZXRpbmEucG5nP3Y9MTM3MDU0\"
+        alt=\"ExpressVPN\" width=\"40\" height=\"40\"> </div> <div class=\"partner-info\">
+        <h4>ExpressVPN <br /> <a rel=\"sponsored\" class=\"partner-contact\" target=\"_blank\"
+        href=\"https://go.expressvpn.com/c/6732466/1509308/16063\">Obtener Oferta</a></h4>
+        <p>Navega seguro, evita rastreos y accede a contenido de todo el mundo</p>
+        </div> </div> <div class=\"partner-services\">  <span class=\"service-tag\">VPN
+        R\xE1pida</span>  <span class=\"service-tag\">Navega An\xF3nimo</span>  <span
+        class=\"service-tag\">Sin L\xEDmites</span>  </div> </div>   <div class=\"cta-container\">
+        <a class=\"animated-cta\" href=\"/partner-with-us\" title=\"\xA1Convi\xE9rtase
+        en Partner!\">\r\n    <span class=\"emoji\">\U0001F91D</span>\r\n    <span
+        class=\"text\">\xA1Convi\xE9rtase en Partner!</span>\r\n    <span class=\"arrow\">\u2192</span>\r\n</a>
+        </div> </div> </aside>  </div> <footer> <div class=\"footer footer-search\"
+        style=\"color:darkgrey\">  <div style=\"width: 100%;text-align: center;padding-bottom:
+        100px;\"> <div> 2007-2026 \xA9 CuitOnline. | <a style=\"color:darkgrey\" href=\"https://www.cuitonline.com/privacidad\"
+        target=\"_blank\">Pol\xEDtica de Privacidad</a> | <a  style=\"color:darkgrey\"
+        href=\"https://www.cuitonline.com/faq\"                target=\"_blank\">Preguntas
+        frecuentes</a> | <a  style=\"color:darkgrey\" href=\"/bajas\" target=\"_blank\">Eliminaci\xF3n
+        de datos</a> | <a  style=\"color:darkgrey\" href=\"/partner-with-us\" target=\"_blank\">Convi\xE9rtete
+        en socio</a> | <a  style=\"color:darkgrey\" href=\"/blog/\">Blog</a> </div>
+        <div> <img class=\"logo-footer img-co-iso\" style=\"width:60px;padding-top:20px;\"
+        src=\"images/logo-footer-mobile-2x.png\" alt=\"logo footer mobile\" /> <img
+        class=\"logo-footer-mobile img-co-iso\" src=\"images/logo-footer-mobile-2x.png\"
+        alt=\"logo footer mobile\" width=\"58\" height=\"33\"  style=\"padding-top:20px;\"
+        /> </div> </div>   </div> </footer> <!-- EL FOOTER TERMINA ACA --> \n\t<script
+        type=\"text/javascript\">\n\t\tfunction prepareTargetBlank(){\n\t\t\t\tvar
+        className = 'newWin';\n\t\t\t\tvar as = document.getElementsByTagName('a');\n\t\t\tfor(i=0;i<as.length;i++){\n\t\t\t\tvar
+        a = as[i];\n\t\t\t\tr=new RegExp(\"(^| )\"+className+\"($| )\");\n\t\t\t\tif(r.test(a.className)){\n\t\t\t\t\ta.target=\"_blank\";\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tprepareTargetBlank();\n\t</script>\n\t
+        <script type=\"text/javascript\" src=\"js-250408072552-c/dk.common.js\"></script>
+        <script type=\"text/javascript\" src=\"js-250402224942-c/search-menu.js\"></script>\n<script
+        type=\"text/javascript\" src=\"js-250402224942-c/divisas-widget.js\"></script>
+        \n<script>\n\t/*\n\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n
+        \   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\tga('create',
+        'UA-2550049-5', 'cuitonline.com');\n\tga('send', 'pageview');\n\t*/\n</script>
+        \ </body> </html>"
+    headers:
+      CF-RAY:
+      - 9f9cd2a6bec51e82-EZE
+      Cache-Control:
+      - public, max-age=10800
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Sun, 10 May 2026 23:46:22 GMT
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=pte9%2BhsDRNqEVpOv7HnrJ9eVSuPQrhjpeMfeT6T%2FMw007GHbtTal0nSlyNPr0ZtVhjJmhf7UZkDnXxJJqMmfEYPXnmGjQyFGyopaSkL%2BlS1xJSPTm9lL48aeCxGZc4VMgMMjr5hYpHhctoAhKBsw3a0%3D"}]}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - _co=29019965
+      - nu-reward-capping=true; expires=Mon, 11-May-2026 00:16:21 GMT; Max-Age=1800;
+        path=/
+      - nu-reward-usage=WyJzZWFyY2giXQ%3D%3D; expires=Mon, 11-May-2026 00:16:21 GMT;
+        Max-Age=1800; path=/
+      - search_oldcomer=1; expires=Wed, 07-May-2036 23:46:21 GMT; Max-Age=315360000;
+        path=/; secure; httponly
+      - paywalled-content-hits-counter=1; expires=Thu, 01-Jul-2027 15:46:21 GMT; Max-Age=36000000;
+        path=/; secure
+      Speculation-Rules:
+      - '"/cdn-cgi/speculation"'
+      Transfer-Encoding:
+      - chunked
+      alt-svc:
+      - h3=":443"; ma=86400
+      cf-cache-status:
+      - DYNAMIC
+      vary:
+      - Accept-Encoding
+      x-powered-by:
+      - PHP/5.6.40
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -21,6 +21,11 @@ base_url = "https://www.cuitonline.com"
 
 __version__ = "0.1.1"
 
+_headers = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+    "Accept-Language": "es-AR,es;q=0.9",
+}
+
 
 class Sopita(BeautifulSoup):
     def _extract(self, selector_or_attr: str, value: Optional[str] = None):
@@ -46,7 +51,7 @@ class Persona(BaseModel):
     @cached_property
     def _details(self):
         """Carga los detalles desde la URL de detalles si aún no se han cargado."""
-        response = requests.get(self.url)
+        response = requests.get(self.url, headers=_headers)
         response.raise_for_status()
 
         soup = Sopita(response.text, "html.parser")
@@ -120,17 +125,45 @@ class Persona(BaseModel):
         return HumanName(formatted).last or None
 
 
-def _tipo_persona_desde_cuit(cuit: str) -> str:
-    """Infiere el tipo de persona a partir del prefijo del CUIT argentino."""
-    prefix = cuit.replace("-", "")[:2]
-    return "jurídica" if prefix in ("30", "33", "34") else "física"
+def _extraer_tipo_persona(item) -> str:
+    """Extrae 'física' o 'jurídica' del texto del resultado de búsqueda."""
+    facets = item.select_one(".doc-facets")
+    if facets:
+        for texto in facets.strings:
+            t = texto.strip()
+            if "Jurídica" in t:
+                return "jurídica"
+            if "Física" in t:
+                return "física"
+    return "física"
+
+
+_FACETA_A_PARAM = {
+    "iva": "f1[]",
+    "monotributo": "f2[]",
+    "ganancias": "f3[]",
+    "empleador": "f4[]",
+    "persona": "f5[]",
+    "nacionalidad": "f6[]",
+}
 
 
 def _parsear_filtros(filtros: Optional[str]) -> list[tuple[str, str]]:
-    """Convierte 'personeria:juridica,iva:exento' en lista de (f5[], valor)."""
+    """Convierte 'persona:juridica,iva:iva_exento' en lista de (fN[], valor).
+
+    Cada faceta tiene su propio parámetro URL según el sitio:
+    - iva → f1[], monotributo → f2[], ganancias → f3[]
+    - empleador → f4[], persona → f5[], nacionalidad → f6[]
+    """
     if not filtros:
         return [("f5[]", "persona:fisica")]
-    return [("f5[]", f.strip()) for f in filtros.split(",")]
+    params = []
+    for f in filtros.split(","):
+        f = f.strip()
+        faceta = f.split(":")[0] if ":" in f else ""
+        param = _FACETA_A_PARAM.get(faceta, "f5[]")
+        params.append((param, f))
+    return params
 
 
 class Busqueda:
@@ -156,7 +189,9 @@ class Busqueda:
 
     def _search(self, q: str, pagina: int = 1) -> List[Persona]:
         params = [("q", q), ("pn", str(pagina))] + _parsear_filtros(self.filtros)
-        response = requests.get(f"{base_url}/search.php", params=params)
+        response = requests.get(
+            f"{base_url}/search.php", params=params, headers=_headers
+        )
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         resultados = []
@@ -165,7 +200,7 @@ class Busqueda:
             persona = Persona(
                 nombre=item.select_one(".denominacion h2").get_text(strip=True),
                 cuit=cuit,
-                tipo_persona=_tipo_persona_desde_cuit(cuit),
+                tipo_persona=_extraer_tipo_persona(item),
                 url=f"{base_url}/{item.select_one('.denominacion a')['href']}",
                 parse_nombres=self.parse_nombres,
             )
