@@ -81,6 +81,7 @@ class TestPersona:
             cuit="20-22293909-8",
             tipo_persona="física",
             url="https://www.cuitonline.com/persona/gaitan/123",
+            parse_nombres=True,
         )
 
     @pytest.fixture
@@ -99,12 +100,20 @@ class TestPersona:
         assert persona_juridica.dni is None
 
     def test_nombre_pila_persona_fisica(self, persona_fisica):
-        assert persona_fisica.nombre_pila is not None
-        assert isinstance(persona_fisica.nombre_pila, str)
+        assert persona_fisica.nombre_pila == "MARTIN"
 
     def test_apellido_persona_fisica(self, persona_fisica):
-        assert persona_fisica.apellido is not None
-        assert isinstance(persona_fisica.apellido, str)
+        assert persona_fisica.apellido == "GAITAN"
+
+    def test_nombre_pila_sin_parse_nombres_es_none(self):
+        p = Persona(
+            nombre="GAITAN MARTIN EMILIO",
+            cuit="20-22293909-8",
+            tipo_persona="física",
+            url="https://www.cuitonline.com/persona/gaitan/123",
+        )
+        assert p.nombre_pila is None
+        assert p.apellido is None
 
     def test_nombre_pila_persona_juridica_es_none(self, persona_juridica):
         assert persona_juridica.nombre_pila is None
