@@ -222,6 +222,9 @@ def search(
 def main():
     parser = argparse.ArgumentParser(description="Buscar personas en CUIT Online.")
     parser.add_argument(
+        "-v", "--version", action="version", version=f"%(prog)s {__version__}"
+    )
+    parser.add_argument(
         "criterio", help="Criterio de búsqueda (nombre, cuit, dni, etc.)"
     )
     parser.add_argument(
