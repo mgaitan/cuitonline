@@ -3,6 +3,7 @@
 import pytest
 from bs4 import BeautifulSoup as BS4
 
+import cuitonline
 from cuitonline import Persona, Sopita, _extraer_tipo_persona, _parsear_filtros
 
 
@@ -104,6 +105,18 @@ class TestPersona:
 
     def test_apellido_persona_fisica(self, persona_fisica):
         assert persona_fisica.apellido == "GAITAN"
+
+    def test_nombre_pila_sin_nameparser_es_none(self, monkeypatch):
+        monkeypatch.setattr(cuitonline, "HumanName", None)
+        p = Persona(
+            nombre="GAITAN MARTIN EMILIO",
+            cuit="20-22293909-8",
+            tipo_persona="física",
+            url="https://www.cuitonline.com/persona/gaitan/123",
+            parse_nombres=True,
+        )
+        assert p.nombre_pila is None
+        assert p.apellido is None
 
     def test_nombre_pila_sin_parse_nombres_es_none(self):
         p = Persona(
