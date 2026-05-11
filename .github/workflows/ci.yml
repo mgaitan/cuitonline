@@ -6,31 +6,41 @@ on:
   push:
     branches:
     - main
+  schedule:
+    - cron: "0 9 * * 1"  # lunes a las 9 UTC — sanidad contra el sitio real
 
 
 jobs:
   lint:
     runs-on: ubuntu-latest
+    if: github.event_name != 'schedule'
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v7
 
-      - name: Ruff check 
+      - name: Ruff check
         run: uv run ruff check --output-format=github
 
       - name: Ruff format
         run: uv run ruff format --check
-   
+
   test:
-      needs: lint
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          python-version: ["3.12", "3.13"]
-      
-      steps:
-        - uses: actions/checkout@v4
-        - uses: astral-sh/setup-uv@v5
-        - run: uv sync
-        - run: uv run cuitonline 22293909 | jq -c '. | length == 1 and .[0].localidad == "La Plata"' > /dev/null
-        
+    needs: lint
+    if: always() && (needs.lint.result == 'success' || needs.lint.result == 'skipped')
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13", "3.14", "3.15"]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: uv sync --group dev
+      - name: Tests con cassettes (sin red)
+        if: github.event_name != 'schedule'
+        run: uv run pytest
+      - name: Tests contra el sitio real (sanidad semanal)
+        if: github.event_name == 'schedule'
+        run: uv run pytest --disable-recording
