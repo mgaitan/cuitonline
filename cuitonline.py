@@ -19,7 +19,7 @@ except ImportError:
 
 base_url = "https://www.cuitonline.com"
 
-__version__ = "0.1.1"
+__version__ = "0.3.0"
 
 _headers = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
