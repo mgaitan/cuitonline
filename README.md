@@ -69,7 +69,7 @@ cuitonline "gaitan" --pagina 2
 
 ## Uso como biblioteca
 
-Agregá `cuitonline` como dependencia de tu proyecto Python y realizá búsquedas procesando los datos obtenidos.
+Agregá `cuitonline` como dependencia de tu proyecto Python (por ejemplo con `uv add cuitonline`)  y realizá búsquedas procesando los datos obtenidos.
 
 ### `search(criterio, pagina=1, filtros=None) → List[Persona]`
 
