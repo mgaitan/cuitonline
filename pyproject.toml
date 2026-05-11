@@ -31,7 +31,7 @@ addopts = "--record-mode=none --block-network"
 [dependency-groups]
 dev = [
     "cuitonline[nombres]",
-    "pytest>=8.0",
+    "pytest>=9.0",
     "pytest-recording>=0.13",
     "ruff>=0.9.2",
 ]
