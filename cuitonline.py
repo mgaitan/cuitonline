@@ -139,9 +139,9 @@ def _extraer_tipo_persona(item) -> str:
 
 
 _FACETA_A_PARAM = {
+    "ganancias": "f0[]",
     "iva": "f1[]",
     "monotributo": "f2[]",
-    "ganancias": "f3[]",
     "empleador": "f4[]",
     "persona": "f5[]",
     "nacionalidad": "f6[]",
@@ -152,7 +152,7 @@ def _parsear_filtros(filtros: Optional[str]) -> list[tuple[str, str]]:
     """Convierte 'persona:juridica,iva:iva_exento' en lista de (fN[], valor).
 
     Cada faceta tiene su propio parámetro URL según el sitio:
-    - iva → f1[], monotributo → f2[], ganancias → f3[]
+    - ganancias → f0[], iva → f1[], monotributo → f2[]
     - empleador → f4[], persona → f5[], nacionalidad → f6[]
     """
     if not filtros:

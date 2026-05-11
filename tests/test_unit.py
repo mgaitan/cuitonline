@@ -49,6 +49,11 @@ class TestParsearFiltros:
     def test_persona_juridica_va_a_f5(self):
         assert _parsear_filtros("persona:juridica") == [("f5[]", "persona:juridica")]
 
+    def test_ganancias_va_a_f0(self):
+        assert _parsear_filtros("ganancias:no_inscripto") == [
+            ("f0[]", "ganancias:no_inscripto")
+        ]
+
     def test_iva_va_a_f1(self):
         assert _parsear_filtros("iva:iva_exento") == [("f1[]", "iva:iva_exento")]
 
