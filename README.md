@@ -2,6 +2,10 @@
 
 `cuitonline` es un cliente no oficial para el sitio [cuitonline.com](https://www.cuitonline.com/) basado en scraping. Podés usarlo tanto como CLI (interfaz de línea de comandos) o como biblioteca Python.
 
+> [!WARNING]
+> El sitio cambió e implementó varias técnicas anti-scraping; la versión actual no
+> funciona. Estamos trabajando en un [borrador basado en scraping con navegador](https://github.com/mgaitan/cuitonline/compare/main...draft/browser-scraping).
+
 Permite realizar búsquedas de personas (físicas y jurídicas) por nombre, CUIT, DNI, etc. y obtener información básica estructurada como dirección, localidad, provincia, etc. La línea de comando devuelve los resultados como JSON a la salida estándar, por lo que es fácil de integrar con otras herramientas.
 
 
