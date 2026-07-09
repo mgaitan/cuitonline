@@ -13,7 +13,7 @@ interactions:
       User-Agent:
       - Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0
     method: GET
-    uri: https://www.cuitonline.com/search.php?q=gaitan&pn=1&f5%5B%5D=persona%3Ajuridica
+    uri: https://www.cuitonline.com/search/gaitan?pn=1&f5%5B%5D=persona%3Ajuridica
   response:
     body:
       string: " <!DOCTYPE html> <html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"es-AR\"

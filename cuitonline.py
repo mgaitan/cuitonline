@@ -4,13 +4,20 @@ CLI y biblioteca Python de cuitonline.com. No oficial.
 
 import argparse
 import json
-from functools import cached_property, partial
+import os
+import shutil
+import signal
+import socket
+import subprocess
+import time
+from functools import cached_property
+from pathlib import Path
 from typing import List, Optional
+from urllib.parse import quote, urlencode
 
 import requests
 from bs4 import BeautifulSoup
 from pydantic import BaseModel, Field, computed_field
-from pydantic_core import to_jsonable_python
 
 try:
     from nameparser import HumanName
@@ -18,13 +25,225 @@ except ImportError:
     HumanName = None
 
 base_url = "https://www.cuitonline.com"
+_browser_profile = Path(
+    os.environ.get(
+        "CUITONLINE_BROWSER_PROFILE",
+        Path.home() / ".local" / "share" / "cuitonline" / "browser-profile",
+    )
+)
 
 __version__ = "0.3.0"
 
-_headers = {
-    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
-    "Accept-Language": "es-AR,es;q=0.9",
+_DETAIL_FIELDS = {
+    "_details",
+    "genero",
+    "direccion",
+    "provincia",
+    "localidad",
+    "nacionalidad",
+    "monotributo",
+    "empleador",
 }
+
+
+class CloudflareChallengeError(RuntimeError):
+    """El sitio pidió una verificación interactiva que requests no puede resolver."""
+
+
+class ContentUnavailableError(RuntimeError):
+    """El sitio no entregó la página de detalle para la sesión actual."""
+
+
+class BrowserSupportError(RuntimeError):
+    """No se pudo iniciar el navegador requerido para la sesión interactiva."""
+
+
+def _is_cloudflare_challenge(html: str) -> bool:
+    """Reconoce la página de desafío, no recursos de Cloudflare del sitio normal."""
+    return (
+        "window._cf_chl_opt" in html
+        or 'id="challenge-error-text"' in html
+        or "<title>Just a moment...</title>" in html
+    )
+
+
+def _search_url(q: str) -> str:
+    """Devuelve la ruta de búsqueda actual del sitio."""
+    return f"{base_url}/search/{quote(q, safe='')}"
+
+
+def _parse_search_results(html: str, parse_nombres: bool = False) -> List["Persona"]:
+    soup = BeautifulSoup(html, "html.parser")
+    resultados = []
+    for item in soup.select(".hit"):
+        cuit = item.select_one(".linea-cuit-persona .cuit").get_text(strip=True)
+        persona = Persona(
+            nombre=item.select_one(".denominacion h2").get_text(strip=True),
+            cuit=cuit,
+            tipo_persona=_extraer_tipo_persona(item),
+            url=f"{base_url}/{item.select_one('.denominacion a')['href']}",
+            parse_nombres=parse_nombres,
+        )
+        resultados.append(persona)
+    return resultados
+
+
+def _persona_a_dict(persona: "Persona", detalles: bool = False) -> dict:
+    """Serializa un resultado; los detalles se consultan sólo bajo pedido."""
+    return persona.model_dump(exclude=None if detalles else _DETAIL_FIELDS)
+
+
+def _playwright():
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError as error:
+        raise BrowserSupportError(
+            "El modo navegador requiere instalar cuitonline con soporte de navegador."
+        ) from error
+
+    return sync_playwright()
+
+
+def _free_local_port() -> int:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
+        listener.bind(("127.0.0.1", 0))
+        return listener.getsockname()[1]
+
+
+def _chrome_executable() -> str:
+    configured = os.environ.get("CUITONLINE_CHROME")
+    candidates = [configured] if configured else []
+    candidates.extend(["google-chrome", "chromium", "chromium-browser"])
+    for candidate in candidates:
+        if candidate and (executable := shutil.which(candidate)):
+            return executable
+    raise BrowserSupportError(
+        "No se encontró Google Chrome. Definí CUITONLINE_CHROME con su ejecutable."
+    )
+
+
+def _start_chrome(target: str) -> tuple[subprocess.Popen, str]:
+    """Inicia Chrome normal; Playwright no participa de su lanzamiento."""
+    _browser_profile.mkdir(mode=0o700, parents=True, exist_ok=True)
+    port = _free_local_port()
+    endpoint = f"http://127.0.0.1:{port}"
+    process = subprocess.Popen(
+        [
+            _chrome_executable(),
+            f"--user-data-dir={_browser_profile}",
+            "--remote-debugging-address=127.0.0.1",
+            f"--remote-debugging-port={port}",
+            "--no-first-run",
+            "--no-default-browser-check",
+            target,
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        start_new_session=True,
+    )
+    deadline = time.monotonic() + 15
+    while time.monotonic() < deadline:
+        if process.poll() is not None:
+            break
+        try:
+            response = requests.get(f"{endpoint}/json/version", timeout=0.2)
+            if response.ok:
+                return process, endpoint
+        except requests.RequestException:
+            pass
+        time.sleep(0.1)
+    _stop_chrome(process)
+    raise BrowserSupportError("Google Chrome no pudo iniciarse con el perfil de cuitonline.")
+
+
+def _stop_chrome(process: subprocess.Popen) -> None:
+    try:
+        os.killpg(process.pid, signal.SIGTERM)
+    except ProcessLookupError:
+        return
+    try:
+        process.wait(timeout=5)
+    except subprocess.TimeoutExpired:
+        os.killpg(process.pid, signal.SIGKILL)
+        process.wait()
+
+
+def _connect_to_chrome(endpoint: str):
+    playwright = _playwright().start()
+    try:
+        browser = playwright.chromium.connect_over_cdp(endpoint)
+    except Exception as error:
+        playwright.stop()
+        raise BrowserSupportError("No se pudo conectar al Chrome abierto.") from error
+    return playwright, browser
+
+
+def _chrome_page(browser):
+    for context in browser.contexts:
+        if context.pages:
+            return context.pages[-1]
+    raise BrowserSupportError("Chrome no abrió la página solicitada.")
+
+
+def _browser_get(url: str, params: list[tuple[str, str]]) -> str:
+    query = urlencode(params)
+    target = f"{url}?{query}" if query else url
+    process, endpoint = _start_chrome(target)
+    playwright = browser = None
+    try:
+        playwright, browser = _connect_to_chrome(endpoint)
+        page = _chrome_page(browser)
+        page.wait_for_load_state("domcontentloaded", timeout=60_000)
+        return page.content()
+    finally:
+        if browser:
+            browser.close()
+        if playwright:
+            playwright.stop()
+        _stop_chrome(process)
+
+
+def browser_login(q: str = "cuit") -> None:
+    """Abre Chrome normal para que el usuario complete el desafío de Cloudflare."""
+    process, endpoint = _start_chrome(_search_url(q))
+    playwright = browser = None
+    try:
+        input(
+            "Completá la verificación o buscá el criterio mostrado en Chrome y, "
+            "cuando veas resultados, "
+            "presioná Enter para guardar la sesión. "
+        )
+        playwright, browser = _connect_to_chrome(endpoint)
+        page = _chrome_page(browser)
+        html = page.content()
+        if _is_cloudflare_challenge(html):
+            raise CloudflareChallengeError(
+                "La verificación no quedó completada. Volvé a intentarlo y esperá "
+                "hasta ver los resultados de búsqueda antes de presionar Enter."
+            )
+    finally:
+        if browser:
+            browser.close()
+        if playwright:
+            playwright.stop()
+        _stop_chrome(process)
+
+
+def browser_search(
+    q: str,
+    pagina: int = 1,
+    filtros: Optional[str] = None,
+    parse_nombres: bool = False,
+) -> List["Persona"]:
+    """Busca desde el perfil Chrome autorizado por el usuario."""
+    params = [("pn", str(pagina))] + _parsear_filtros(filtros)
+    html = _browser_get(_search_url(q), params)
+    if _is_cloudflare_challenge(html):
+        raise CloudflareChallengeError(
+            "Cloudflare todavía requiere verificación. Ejecutá `cuitonline --login` "
+            "en una sesión gráfica y completala antes de buscar.",
+        )
+    return _parse_search_results(html, parse_nombres=parse_nombres)
 
 
 class Sopita(BeautifulSoup):
@@ -51,10 +270,19 @@ class Persona(BaseModel):
     @cached_property
     def _details(self):
         """Carga los detalles desde la URL de detalles si aún no se han cargado."""
-        response = requests.get(self.url, headers=_headers)
-        response.raise_for_status()
-
-        soup = Sopita(response.text, "html.parser")
+        html = _browser_get(self.url, [])
+        if _is_cloudflare_challenge(html):
+            raise CloudflareChallengeError(
+                "Cloudflare requiere una nueva verificación. Ejecutá "
+                "`cuitonline --login` y completala antes de pedir detalles."
+            )
+        soup = Sopita(html, "html.parser")
+        title = soup.title.get_text(strip=True) if soup.title else ""
+        if "404" in title:
+            raise ContentUnavailableError(
+                "El sitio no entregó un detalle real para esta sesión. "
+                "La búsqueda sigue mostrando una vista restringida."
+            )
         return {
             "genero": soup._extract("itemprop", "gender"),
             "direccion": soup._extract("itemprop", "streetAddress"),
@@ -188,24 +416,12 @@ class Busqueda:
         self.resultados = self._search(self.criterio, self.pagina_actual)
 
     def _search(self, q: str, pagina: int = 1) -> List[Persona]:
-        params = [("q", q), ("pn", str(pagina))] + _parsear_filtros(self.filtros)
-        response = requests.get(
-            f"{base_url}/search.php", params=params, headers=_headers
+        return browser_search(
+            q,
+            pagina=pagina,
+            filtros=self.filtros,
+            parse_nombres=self.parse_nombres,
         )
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
-        resultados = []
-        for item in soup.select(".hit"):
-            cuit = item.select_one(".linea-cuit-persona .cuit").get_text(strip=True)
-            persona = Persona(
-                nombre=item.select_one(".denominacion h2").get_text(strip=True),
-                cuit=cuit,
-                tipo_persona=_extraer_tipo_persona(item),
-                url=f"{base_url}/{item.select_one('.denominacion a')['href']}",
-                parse_nombres=self.parse_nombres,
-            )
-            resultados.append(persona)
-        return resultados
 
 
 def search(
@@ -225,7 +441,12 @@ def main():
         "-v", "--version", action="version", version=f"%(prog)s {__version__}"
     )
     parser.add_argument(
-        "criterio", help="Criterio de búsqueda (nombre, cuit, dni, etc.)"
+        "criterio", nargs="?", help="Criterio de búsqueda (nombre, cuit, dni, etc.)"
+    )
+    parser.add_argument(
+        "--login",
+        action="store_true",
+        help="Abrir Chrome para completar y guardar la verificación de Cloudflare",
     )
     parser.add_argument(
         "-p",
@@ -246,19 +467,38 @@ def main():
         default=False,
         help="Separar nombre_pila y apellido (requiere: pip install cuitonline[nombres])",
     )
+    parser.add_argument(
+        "--detalles",
+        action="store_true",
+        help="Incluir detalles de cada resultado mediante Chrome",
+    )
     args = parser.parse_args()
 
-    resultados = Busqueda(
-        args.criterio,
-        pagina_inicial=args.pagina,
-        filtros=args.filtros,
-        parse_nombres=args.nombres,
-    )
+    if args.login:
+        try:
+            browser_login(args.criterio or "cuit")
+        except (BrowserSupportError, CloudflareChallengeError) as error:
+            parser.error(str(error))
+        return
+    if not args.criterio:
+        parser.error("criterio es obligatorio salvo al usar --login")
+
+    try:
+        resultados = Busqueda(
+            args.criterio,
+            pagina_inicial=args.pagina,
+            filtros=args.filtros,
+            parse_nombres=args.nombres,
+        ).resultados
+        resultado_json = [
+            _persona_a_dict(persona, detalles=args.detalles) for persona in resultados
+        ]
+    except (BrowserSupportError, CloudflareChallengeError, ContentUnavailableError) as error:
+        parser.error(str(error))
 
     print(
         json.dumps(
-            resultados.resultados,
-            default=partial(to_jsonable_python, exclude=("_details",)),
+            resultado_json,
             indent=2,
         )
     )

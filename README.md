@@ -4,6 +4,24 @@
 
 Permite realizar búsquedas de personas (físicas y jurídicas) por nombre, CUIT, DNI, etc. y obtener información básica estructurada como dirección, localidad, provincia, etc. La línea de comando devuelve los resultados como JSON a la salida estándar, por lo que es fácil de integrar con otras herramientas.
 
+> [!IMPORTANT]
+> El sitio puede exigir una verificación interactiva de Cloudflare. Cuando eso ocurre,
+> la herramienta abre Chrome y conserva una sesión que el usuario autorizó manualmente.
+
+Para autorizar una sesión manualmente y después usarla desde el CLI:
+
+```bash
+# Abre Chrome para autorizar la sesión. Esperá a ver resultados y presioná Enter.
+uvx cuitonline --login
+
+# Las consultas siguientes usan automáticamente ese perfil persistente de Chrome.
+uvx cuitonline 20292247851
+```
+
+El perfil se guarda separado del perfil personal de Chrome, en
+`~/.local/share/cuitonline/browser-profile`. Podés elegir otra ubicación con
+`CUITONLINE_BROWSER_PROFILE`.
+
 
 ## Uso como CLI
 
@@ -23,6 +41,10 @@ y después usá directamente `cuitonline` desde tu terminal.
 
 También podés usar `pipx`, `pip` o cualquier otro gestor de paquetes Python.
 
+La CLI devuelve los campos del resultado de búsqueda. Para incluir los detalles de
+cada persona (dirección, condición tributaria, etc.), usá `--detalles`; también se
+obtienen desde la biblioteca al acceder a sus propiedades.
+
 ### Ejemplos
 
 <p align="center">
@@ -32,7 +54,7 @@ También podés usar `pipx`, `pip` o cualquier otro gestor de paquetes Python.
 Para filtrar los resultados podés usar `jq`. Por ejemplo, encontrá a Messi en Rosario:
 
 ```bash
-cuitonline "lionel messi" | jq '.[] | select(.localidad | contains("Rosario"))'
+cuitonline --detalles "lionel messi" | jq '.[] | select(.localidad | contains("Rosario"))'
 ```
 
 #### Filtros de facetados
